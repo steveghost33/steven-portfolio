@@ -85,19 +85,43 @@ const Header = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="lg:hidden z-[110] size-10 border-2 border-s4/25 rounded-full flex justify-center items-center"
+          className={clsx(
+            "lg:hidden z-[110] flex items-center gap-2 rounded-full border-2 px-4 py-2 text-sm font-bold uppercase tracking-[0.08em] transition-all duration-300",
+            isOpen
+              ? "border-p1 bg-p1 text-s1 shadow-200"
+              : "border-p1/70 bg-s2/90 text-p4 shadow-100 hover:bg-p1 hover:text-s1"
+          )}
           onClick={() => setIsOpen((prev) => !prev)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
         >
-          <img
-            src={`/images/${isOpen ? "close" : "magic"}.svg`}
-            alt="toggle"
-            className="size-1/2 object-contain"
-          />
+          <span>{isOpen ? "Close" : "Menu"}</span>
+          <span className="flex w-5 flex-col gap-1" aria-hidden="true">
+            <span
+              className={clsx(
+                "h-0.5 w-full rounded-full transition-transform duration-300",
+                isOpen ? "translate-y-1.5 rotate-45 bg-s1" : "bg-current"
+              )}
+            />
+            <span
+              className={clsx(
+                "h-0.5 w-full rounded-full transition-opacity duration-300",
+                isOpen ? "opacity-0 bg-s1" : "bg-current"
+              )}
+            />
+            <span
+              className={clsx(
+                "h-0.5 w-full rounded-full transition-transform duration-300",
+                isOpen ? "-translate-y-1.5 -rotate-45 bg-s1" : "bg-current"
+              )}
+            />
+          </span>
         </button>
 
         {/* Mobile Menu Overlay */}
         <div
+          id="mobile-navigation"
           className={clsx(
             "lg:hidden fixed inset-0 w-full h-screen bg-s2 z-[100] flex flex-col items-center justify-center gap-10 transition-opacity duration-300",
             isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"

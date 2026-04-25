@@ -4,6 +4,7 @@ const projects = [
   {
     title: "Ella Tech Solutions",
     img: "/images/projects/ellatech.png",
+    alt: "Ella Tech Solutions website — Detroit-based technology consulting firm built with React and Tailwind CSS",
     desc: "A modern SaaS-style website for a Detroit-based technology consulting firm. Built with React, Tailwind CSS, and Vite — showcasing services, pricing, and client intake optimized for nonprofits and small businesses.",
     tags: ["React", "Tailwind CSS", "Vite", "React Router"],
     link: "https://www.ellatechsolutions.com",
@@ -12,6 +13,7 @@ const projects = [
   {
     title: "Peak Form Fitness",
     img: "/images/projects/peak-form.png",
+    alt: "Peak Form Fitness website — fitness business site with service packages, appointment booking, and e-commerce",
     desc: "A fitness business website featuring service packages, appointment booking, and a branded e-commerce experience. Built for speed, mobile usability, and conversion.",
     tags: ["Web Design", "E-Commerce", "Booking Integration"],
     link: "https://peak-form-fitness.vercel.app",
@@ -20,6 +22,7 @@ const projects = [
   {
     title: "Team Cabin",
     img: "/images/projects/teamcabin.png",
+    alt: "Team Cabin band website — indie music website with interactive fan engagement game",
     desc: "A website for an indie music band with visitor engagement at its core. Features an interactive game so fans can connect with the brand beyond just listening.",
     tags: ["Web Design", "Music", "Interactive"],
     link: "https://weareteamcabin.com",
@@ -48,7 +51,7 @@ const Projects = () => {
               <div className="w-full h-48 md:h-56 bg-s1 rounded-xl m-3 flex items-center justify-center overflow-hidden">
                 <img
                   src={proj.img}
-                  alt={proj.title}
+                  alt={proj.alt}
                   className="max-w-[calc(100%-1.5rem)] max-h-[calc(100%-1.5rem)] object-contain"
                 />
               </div>
