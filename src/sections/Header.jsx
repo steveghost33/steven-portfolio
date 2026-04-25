@@ -1,27 +1,7 @@
 import { useEffect, useState } from "react";
 import clsx from "clsx";
-
-const navLinks = [
-  { title: "About", href: "#about" },
-  { title: "Projects", href: "#projects" },
-  { title: "Skills", href: "#skills" },
-  { title: "Contact", href: "#contact" },
-];
-
-const socials = [
-  {
-    id: "github",
-    title: "GitHub",
-    icon: "/images/socials/github.svg",
-    url: "https://github.com/steveghost33",
-  },
-  {
-    id: "linkedin",
-    title: "LinkedIn",
-    icon: "/images/socials/linkedin.svg",
-    url: "https://www.linkedin.com/in/steven-a-bowman/",
-  },
-];
+import SocialLink from "../components/SocialLink.jsx";
+import { navLinks, profile } from "../data/portfolio.js";
 
 const Header = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
@@ -34,8 +14,10 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "unset";
-    return () => { document.body.style.overflow = "unset"; };
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isOpen]);
 
   return (
@@ -46,17 +28,16 @@ const Header = () => {
       )}
     >
       <div className="container flex items-center justify-between h-14">
-        {/* Logo / Name */}
         <a
           href="#hero"
           className="text-p1 font-black text-2xl tracking-widest hover:text-p4 transition-colors duration-300 z-[110] border border-p1/30 rounded-xl px-3 py-1 hover:bg-p1/10"
           onClick={() => setIsOpen(false)}
+          aria-label={`${profile.name} home`}
         >
-          SB
+          {profile.initials}
         </a>
 
-        {/* Desktop Nav */}
-        <nav className="max-lg:hidden flex items-center gap-8">
+        <nav className="max-lg:hidden flex items-center gap-8" aria-label="Primary navigation">
           {navLinks.map(({ title, href }) => (
             <a
               key={title}
@@ -68,22 +49,12 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* Desktop Socials */}
         <div className="max-lg:hidden flex items-center gap-3">
-          {socials.map(({ id, url, icon, title }) => (
-            <a
-              key={id}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-icon"
-            >
-              <img src={icon} alt={title} className="w-4 h-4 object-contain" />
-            </a>
+          {profile.socials.map((social) => (
+            <SocialLink key={social.id} social={social} />
           ))}
         </div>
 
-        {/* Mobile Toggle */}
         <button
           className={clsx(
             "lg:hidden z-[110] flex items-center gap-2 rounded-full border-2 px-4 py-2 text-sm font-bold uppercase tracking-[0.08em] transition-all duration-300",
@@ -119,7 +90,6 @@ const Header = () => {
           </span>
         </button>
 
-        {/* Mobile Menu Overlay */}
         <div
           id="mobile-navigation"
           className={clsx(
@@ -127,7 +97,7 @@ const Header = () => {
             isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
           )}
         >
-          <nav className="flex flex-col items-center gap-8">
+          <nav className="flex flex-col items-center gap-8" aria-label="Mobile navigation">
             {navLinks.map(({ title, href }) => (
               <a
                 key={title}
@@ -140,16 +110,8 @@ const Header = () => {
             ))}
           </nav>
           <div className="flex items-center gap-4">
-            {socials.map(({ id, url, icon, title }) => (
-              <a
-                key={id}
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-icon"
-              >
-                <img src={icon} alt={title} className="w-5 h-5 object-contain" />
-              </a>
+            {profile.socials.map((social) => (
+              <SocialLink key={social.id} social={social} iconClassName="w-5 h-5" />
             ))}
           </div>
         </div>

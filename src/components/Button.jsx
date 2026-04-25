@@ -4,6 +4,7 @@ import { Marker } from "./Marker.jsx";
 
 const Button = ({
   icon,
+  iconAlt = "",
   children,
   href,
   to,
@@ -21,8 +22,9 @@ const Button = ({
         {icon ? (
           <img
             src={icon}
-            alt="icon"
+            alt={iconAlt}
             className="size-10 mr-5 object-contain z-10"
+            aria-hidden={iconAlt ? undefined : "true"}
           />
         ) : null}
 
@@ -50,7 +52,12 @@ const Button = ({
 
   if (href) {
     return (
-      <a className={className} href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noopener noreferrer" : undefined}>
+      <a
+        className={className}
+        href={href}
+        target={href.startsWith("http") ? "_blank" : undefined}
+        rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+      >
         <Inner />
       </a>
     );

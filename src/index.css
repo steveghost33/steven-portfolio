@@ -17,6 +17,11 @@
     @apply no-underline;
   }
 
+  a:focus-visible,
+  button:focus-visible {
+    @apply outline outline-2 outline-offset-4 outline-p1;
+  }
+
   img {
     @apply block max-w-full;
   }
@@ -27,6 +32,17 @@
 
   input, textarea {
     @apply tracking-[-0.03em];
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
