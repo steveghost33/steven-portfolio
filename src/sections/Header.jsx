@@ -24,38 +24,33 @@ const Header = ({ theme, onToggleTheme }) => {
   return (
     <header
       className={clsx(
-        "fixed left-0 top-0 z-50 w-full py-5 transition-all duration-500",
-        hasScrolled && "py-3"
+        "fixed left-0 top-0 z-50 w-full transition-all duration-500",
+        hasScrolled ? "bg-s1/85 backdrop-blur-xl" : "bg-transparent"
       )}
     >
-      <div
-        className={clsx(
-          "container flex h-14 items-center justify-between border border-transparent transition-all duration-500",
-          hasScrolled && "rounded-[16px] border-s3 bg-s2/88 px-4 shadow-100 backdrop-blur-xl"
-        )}
-      >
+      <div className="container flex min-h-[84px] items-center justify-between gap-6 border-b border-transparent">
         <a
           href="#hero"
-          className="z-[110] rounded-[12px] border border-s3 bg-s2/88 px-4 py-2 text-sm font-semibold tracking-[0.14em] text-p4 transition-all duration-300 hover:border-p1/30 hover:text-p1"
           onClick={() => setIsOpen(false)}
           aria-label={`${profile.name} home`}
+          className="text-[1.1rem] font-semibold tracking-[-0.03em] text-p4 transition-colors duration-300 hover:text-p1"
         >
-          {profile.initials}
+          {profile.name}
         </a>
 
-        <nav className="max-lg:hidden flex items-center gap-8" aria-label="Primary navigation">
+        <nav className="hidden items-center gap-10 lg:flex" aria-label="Primary navigation">
           {navLinks.map(({ title, href }) => (
             <a
               key={title}
               href={href}
-              className="text-[15px] font-medium text-p5 transition-colors duration-300 hover:text-p4"
+              className="text-[1rem] font-medium text-p4/85 transition-colors duration-300 hover:text-p4"
             >
               {title}
             </a>
           ))}
         </nav>
 
-        <div className="max-lg:hidden flex items-center gap-3">
+        <div className="hidden items-center gap-3 lg:flex">
           <ThemeToggle theme={theme} onToggle={onToggleTheme} />
           {profile.socials.map((social) => (
             <SocialLink key={social.id} social={social} />
@@ -63,61 +58,43 @@ const Header = ({ theme, onToggleTheme }) => {
         </div>
 
         <button
-          className={clsx(
-            "z-[110] flex items-center gap-2 rounded-[12px] border px-4 py-2 text-sm font-semibold tracking-[0.08em] transition-all duration-300 lg:hidden",
-            isOpen
-              ? "border-p1 bg-p1 text-white shadow-200"
-              : "border-s3 bg-s2/90 text-p4 shadow-100 hover:border-p1/40 hover:bg-s2"
-          )}
+          type="button"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-s3/80 bg-s2/60 text-p4 lg:hidden"
           onClick={() => setIsOpen((prev) => !prev)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
           aria-expanded={isOpen}
           aria-controls="mobile-navigation"
         >
-          <span>{isOpen ? "Close" : "Menu"}</span>
           <span className="flex w-5 flex-col gap-1" aria-hidden="true">
-            <span
-              className={clsx(
-                "h-0.5 w-full rounded-full transition-transform duration-300",
-                isOpen ? "translate-y-1.5 rotate-45 bg-s1" : "bg-current"
-              )}
-            />
-            <span
-              className={clsx(
-                "h-0.5 w-full rounded-full transition-opacity duration-300",
-                isOpen ? "opacity-0 bg-s1" : "bg-current"
-              )}
-            />
-            <span
-              className={clsx(
-                "h-0.5 w-full rounded-full transition-transform duration-300",
-                isOpen ? "-translate-y-1.5 -rotate-45 bg-s1" : "bg-current"
-              )}
-            />
+            <span className={clsx("h-0.5 w-full bg-current transition-transform duration-300", isOpen && "translate-y-1.5 rotate-45")} />
+            <span className={clsx("h-0.5 w-full bg-current transition-opacity duration-300", isOpen && "opacity-0")} />
+            <span className={clsx("h-0.5 w-full bg-current transition-transform duration-300", isOpen && "-translate-y-1.5 -rotate-45")} />
           </span>
         </button>
+      </div>
 
-        <div
-          id="mobile-navigation"
-          className={clsx(
-            "fixed inset-0 z-[100] flex h-screen w-full flex-col items-center justify-center gap-10 bg-s1/95 transition-opacity duration-300 lg:hidden",
-            isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-          )}
-        >
-          <nav className="flex flex-col items-center gap-8" aria-label="Mobile navigation">
+      <div
+        id="mobile-navigation"
+        className={clsx(
+          "border-t border-s3/70 bg-s1/95 backdrop-blur-xl lg:hidden",
+          isOpen ? "block" : "hidden"
+        )}
+      >
+        <div className="container flex flex-col gap-8 py-8">
+          <nav className="flex flex-col gap-5" aria-label="Mobile navigation">
             {navLinks.map(({ title, href }) => (
               <a
                 key={title}
                 href={href}
                 onClick={() => setIsOpen(false)}
-                className="h5 transition-colors duration-300 hover:text-p1"
+                className="h6"
               >
                 {title}
               </a>
             ))}
           </nav>
-          <ThemeToggle theme={theme} onToggle={onToggleTheme} />
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
+            <ThemeToggle theme={theme} onToggle={onToggleTheme} />
             {profile.socials.map((social) => (
               <SocialLink key={social.id} social={social} iconClassName="w-5 h-5" />
             ))}

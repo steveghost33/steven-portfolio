@@ -3,62 +3,49 @@ import { profile } from "../data/portfolio.js";
 
 const Contact = () => {
   return (
-    <section id="contact" className="border-t border-s3/70 py-24 max-lg:py-16">
-      <div className="container">
-        <div className="mx-auto max-w-4xl rounded-[20px] border border-s3 bg-s2/82 px-6 py-12 shadow-200 md:px-10">
-          <SectionHeading
-            eyebrow="Get In Touch"
-            title="Let’s make the next version of your digital presence feel easier to use."
-            description="If you have a site, system, or workflow that needs to feel clearer and more effective, I’d be glad to talk it through."
-            titleClassName="h2 max-lg:h3"
-            className="mb-12"
-          />
+    <section id="contact" className="section-rule py-24 max-lg:py-16">
+      <div className="container grid gap-12 lg:grid-cols-[320px_minmax(0,1fr)]">
+        <SectionHeading
+          eyebrow="Contact"
+          title="If you need a site or system to feel clearer, I’d be glad to talk."
+          align="left"
+          titleClassName="h3"
+        />
 
-          <div className="mb-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+        <div className="grid gap-12">
+          <div className="grid gap-6 md:grid-cols-2">
             {profile.socials.map((social) => (
               <a
                 key={social.id}
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col items-center gap-4 rounded-[16px] border border-s3 bg-s1 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-p1/30 hover:bg-s2"
+                className="group border-t border-s3/70 py-6 transition-colors duration-300 hover:border-p1/40"
               >
-                <div className="flex h-14 w-14 items-center justify-center rounded-[12px] border border-s3 bg-s2 text-p4 transition-colors duration-300 group-hover:border-p1/30 group-hover:text-p1">
-                  <img src={social.icon} alt="" className="icon-image h-7 w-7" aria-hidden="true" />
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full border border-s3/80 bg-s2/55">
+                  <img src={social.icon} alt="" className="icon-image h-6 w-6" aria-hidden="true" />
                 </div>
-                <div>
-                  <p className="body-2 mb-1">{social.title}</p>
-                  <p className="small-1 text-p5">{social.handle}</p>
-                </div>
+                <p className="h5">{social.title}</p>
+                <p className="mt-2 body-3">{social.handle}</p>
               </a>
             ))}
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="grid gap-6 md:grid-cols-2">
             <a
               href={profile.phone.href}
-              className="group flex items-center gap-3 rounded-[14px] border border-s3 bg-s1 px-6 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-p1/30 hover:bg-s2"
+              className="border-t border-s3/70 py-6 transition-colors duration-300 hover:border-p1/40"
             >
-              <span className="text-2xl" aria-hidden="true">☎</span>
-              <div className="text-left">
-                <p className="small-1 mb-0.5 uppercase tracking-wide text-p5">Call Me</p>
-                <p className="body-2 transition-colors duration-300 group-hover:text-p1">
-                  {profile.phone.label}
-                </p>
-              </div>
+              <p className="caption">Call</p>
+              <p className="h5">{profile.phone.label}</p>
             </a>
 
             <a
               href={profile.email.href}
-              className="group flex items-center gap-3 rounded-[14px] border border-s3 bg-s1 px-6 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-p1/30 hover:bg-s2"
+              className="border-t border-s3/70 py-6 transition-colors duration-300 hover:border-p1/40"
             >
-              <span className="text-2xl" aria-hidden="true">✉</span>
-              <div className="text-left">
-                <p className="small-1 mb-0.5 uppercase tracking-wide text-p5">Email Me</p>
-                <p className="body-2 transition-colors duration-300 group-hover:text-p1">
-                  {profile.email.label}
-                </p>
-              </div>
+              <p className="caption">Email</p>
+              <p className="h5 break-all sm:break-normal">{profile.email.label}</p>
             </a>
           </div>
         </div>

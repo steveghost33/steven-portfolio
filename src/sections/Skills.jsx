@@ -3,27 +3,24 @@ import { skillGroups } from "../data/portfolio.js";
 
 const Skills = () => {
   return (
-    <section id="skills" className="border-t border-s3/70 py-24 max-lg:py-16">
-      <div className="container">
+    <section id="skills" className="section-rule py-24 max-lg:py-16">
+      <div className="container grid gap-12 lg:grid-cols-[300px_minmax(0,1fr)]">
         <SectionHeading
-          eyebrow="What I Work With"
-          title="Skills and systems I use to keep projects moving."
-          titleClassName="h2 max-lg:h3"
-          className="mb-16 max-lg:mb-10"
+          eyebrow="Skills"
+          title="The tools are flexible. The thinking stays consistent."
+          align="left"
+          titleClassName="h3"
         />
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div className="grid gap-8 md:grid-cols-2">
           {skillGroups.map(({ category, skills }) => (
-            <div
-              key={category}
-              className="rounded-[18px] border border-s3 bg-s2/80 p-8 shadow-100"
-            >
-              <h3 className="h6 mb-6">{category}</h3>
-              <ul className="flex flex-wrap gap-2">
+            <div key={category} className="border-t border-s3/70 pt-5">
+              <h3 className="h6 mb-5">{category}</h3>
+              <ul className="flex flex-wrap gap-2.5">
                 {skills.map((skill) => (
                   <li
                     key={skill}
-                    className="rounded-[10px] border border-s3 bg-s1 px-4 py-2 text-sm font-medium text-p5 transition-colors duration-300 hover:border-p1/20 hover:text-p4"
+                    className="rounded-full border border-s3/80 bg-s2/35 px-4 py-2 text-sm font-medium text-p5"
                   >
                     {skill}
                   </li>

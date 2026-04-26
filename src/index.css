@@ -5,38 +5,38 @@
 @tailwind utilities;
 
 :root {
-  --color-p1: 15 118 110;
-  --color-p2: 217 242 239;
-  --color-p3: 11 93 122;
-  --color-p4: 31 41 55;
-  --color-p5: 85 96 112;
-  --color-s1: 255 253 248;
-  --color-s2: 255 255 255;
-  --color-s3: 221 229 236;
-  --color-s4: 199 216 230;
-  --color-s5: 243 239 230;
+  --color-p1: 236 31 123;
+  --color-p2: 193 223 245;
+  --color-p3: 84 103 143;
+  --color-p4: 20 26 37;
+  --color-p5: 93 106 133;
+  --color-s1: 244 239 231;
+  --color-s2: 252 249 243;
+  --color-s3: 203 214 230;
+  --color-s4: 163 196 228;
+  --color-s5: 220 234 247;
   --color-black: 0 0 0;
-  --color-black-100: 247 243 234;
-  --page-glow: radial-gradient(circle at top, rgba(217, 242, 239, 0.72), transparent 34%);
-  --page-base: linear-gradient(180deg, #fffdf8 0%, #f7f2ea 100%);
+  --color-black-100: 229 223 212;
+  --page-glow: linear-gradient(180deg, #acd2ef 0%, #cfe6f6 25%, #f4efe7 26%, #f4efe7 100%);
+  --page-base: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
   --icon-filter: none;
 }
 
 .theme-dark {
-  --color-p1: 94 234 212;
-  --color-p2: 19 43 56;
-  --color-p3: 165 243 252;
-  --color-p4: 236 241 247;
-  --color-p5: 162 174 191;
-  --color-s1: 9 14 25;
-  --color-s2: 16 24 37;
-  --color-s3: 42 56 76;
-  --color-s4: 59 130 246;
-  --color-s5: 18 31 42;
+  --color-p1: 255 51 146;
+  --color-p2: 23 46 68;
+  --color-p3: 124 143 174;
+  --color-p4: 242 246 251;
+  --color-p5: 161 171 188;
+  --color-s1: 11 15 20;
+  --color-s2: 18 28 41;
+  --color-s3: 53 66 87;
+  --color-s4: 43 56 74;
+  --color-s5: 25 36 50;
   --color-black: 255 255 255;
-  --color-black-100: 22 32 46;
-  --page-glow: radial-gradient(circle at top, rgba(34, 211, 238, 0.18), transparent 36%);
-  --page-base: linear-gradient(180deg, #090e19 0%, #111827 100%);
+  --color-black-100: 14 22 32;
+  --page-glow: linear-gradient(180deg, #192737 0%, #21384b 24%, #0b0f14 25%, #0b0f14 100%);
+  --page-base: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
   --icon-filter: invert(1);
 }
 
@@ -63,11 +63,9 @@
     @apply block max-w-full;
   }
 
-  button {
-    @apply bg-none tracking-[-0.02em];
-  }
-
-  input, textarea {
+  button,
+  input,
+  textarea {
     @apply tracking-[-0.02em];
   }
 }
@@ -84,59 +82,28 @@
 }
 
 @layer utilities {
-  /* Typography */
-  .h-num { @apply font-poppins text-[64px] font-semibold leading-[1.05] tracking-[-0.04em]; }
-  .h1 { @apply font-poppins text-[clamp(3.75rem,7vw,5.6rem)] font-semibold leading-[0.96] tracking-[-0.055em] text-p4; }
-  .h2 { @apply font-poppins text-[clamp(2.75rem,5vw,4.35rem)] font-semibold leading-[1] tracking-[-0.05em] text-p4; }
-  .h3 { @apply font-poppins text-[clamp(2.1rem,4vw,3.2rem)] font-semibold leading-[1.05] tracking-[-0.045em] text-p4; }
-  .h4 { @apply font-poppins text-[clamp(1.8rem,3vw,2.5rem)] font-semibold leading-[1.08] tracking-[-0.04em] text-p4; }
-  .h5 { @apply font-poppins text-[clamp(1.45rem,2vw,1.9rem)] font-semibold leading-[1.15] tracking-[-0.03em] text-p4; }
-  .h6 { @apply text-[1.05rem] font-semibold leading-[1.5] tracking-[-0.02em] text-p4; }
-  .body-1 { @apply text-[1.3rem] leading-[1.75] tracking-[-0.02em] text-p4; }
-  .body-2 { @apply text-[1.05rem] font-semibold leading-[1.7] tracking-[-0.02em] text-p4; }
+  .h1 { @apply font-poppins text-[clamp(3.8rem,8vw,6.4rem)] font-semibold leading-[0.95] tracking-[-0.06em] text-p4; }
+  .h2 { @apply font-poppins text-[clamp(2.6rem,4.8vw,4.2rem)] font-semibold leading-[1] tracking-[-0.05em] text-p4; }
+  .h3 { @apply font-poppins text-[clamp(2rem,3.6vw,3rem)] font-semibold leading-[1.02] tracking-[-0.045em] text-p4; }
+  .h4 { @apply font-poppins text-[clamp(1.55rem,2.6vw,2.2rem)] font-semibold leading-[1.08] tracking-[-0.04em] text-p4; }
+  .h5 { @apply font-poppins text-[clamp(1.25rem,2vw,1.75rem)] font-semibold leading-[1.15] tracking-[-0.03em] text-p4; }
+  .h6 { @apply text-[1rem] font-semibold leading-[1.45] tracking-[-0.02em] text-p4; }
+  .body-1 { @apply text-[1.22rem] leading-[1.7] tracking-[-0.02em] text-p4; }
+  .body-2 { @apply text-[1.02rem] font-semibold leading-[1.65] tracking-[-0.01em] text-p4; }
   .body-3 { @apply text-[1rem] leading-[1.8] tracking-[-0.01em] text-p5; }
-  .base { @apply text-[0.98rem] font-medium leading-[1.6] tracking-[0]; }
-  .base-bold { @apply text-[16px] font-bold leading-[24px]; }
-  .base-small { @apply text-[15px] font-medium leading-[22px] tracking-[0.02em]; }
-  .small-1 { @apply text-[15px] font-medium leading-[22px] tracking-[0.01em]; }
-  .small-2 { @apply text-[13px] font-semibold leading-[20px] tracking-[0.16em]; }
-  .small-compact { @apply text-[14px] font-medium leading-[22px] tracking-[0.01em]; }
+  .small-1 { @apply text-[0.95rem] font-medium leading-[1.5] tracking-[0.01em]; }
+  .small-2 { @apply text-[0.82rem] font-semibold uppercase leading-[1.4] tracking-[0.2em]; }
+  .small-compact { @apply text-[0.88rem] font-medium leading-[1.5]; }
 
-  /* Gradients */
-  .g1 { background: linear-gradient(180deg, rgb(var(--color-s2) / 0.86), rgb(var(--color-s2) / 0.45)); }
-  .g2 { background: linear-gradient(135deg, rgb(var(--color-p1)), rgb(var(--color-p3))); }
-  .g3 { background: linear-gradient(180deg, rgb(var(--color-s2)), rgb(var(--color-s1))); }
-  .g4 { background: linear-gradient(180deg, rgb(var(--color-p1)), rgb(var(--color-p3))); }
-  .g5 { background: linear-gradient(180deg, rgb(var(--color-s2)), rgb(var(--color-s5))); }
-  .g6 { background: linear-gradient(180deg, rgb(var(--color-s1)), rgb(var(--color-p2) / 0.5)); }
-  .g7 { background: linear-gradient(180deg, rgb(var(--color-p2) / 0.5), rgb(var(--color-s2) / 0.92)); }
-  .g8 { background: linear-gradient(to right, transparent, rgb(var(--color-p1) / 0.35), transparent); }
-  .g9 { background: linear-gradient(180deg, rgb(var(--color-s1) / 0.95), transparent); }
-
-  /* Common */
-  .container { @apply mx-auto max-w-[1180px] px-8 max-xl:px-8 max-lg:px-6 max-sm:px-5; }
-  .caption { @apply small-2 mb-4 uppercase text-p3; }
-  .scroll-hide::-webkit-scrollbar { display: none; }
-  .scroll-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  .container { @apply mx-auto max-w-[1220px] px-8 max-lg:px-6 max-sm:px-5; }
+  .caption { @apply small-2 mb-5 text-p1; }
   .icon-image { filter: var(--icon-filter); }
-
-  /* Header */
-  .nav-active { @apply text-p1; }
-  .nav-li { @apply relative flex flex-1 items-center justify-between max-lg:flex-col max-lg:items-start; }
-  .nav-logo { @apply relative flex flex-1 items-center justify-center; }
-  .dot { @apply size-1.5 rounded-full bg-p1 max-lg:hidden; }
-  .sidebar-before { @apply max-lg:before:absolute max-lg:before:-right-64 max-lg:before:top-2/5 max-lg:before:h-[440px] max-lg:before:w-[252px] max-lg:before:bg-p2 max-lg:before:blur-[200px] max-lg:before:content-['']; }
-
-  /* Button */
-  .inner-before { @apply before:g7 before:absolute before:inset-0 before:opacity-0 before:transition-opacity before:duration-500 before:content-['']; }
-  .glow-before { @apply before:g8 before:absolute before:left-6 before:top-0 before:z-4 before:h-px before:w-1/2 before:opacity-0 before:transition-all before:duration-500 before:content-[''] group-hover:before:left-10 group-hover:before:opacity-100; }
-  .glow-after { @apply after:g8 after:absolute after:bottom-0 after:right-6 after:z-4 after:h-px after:w-1/3 after:opacity-0 after:transition-all after:duration-500 after:content-[''] group-hover:after:right-10 group-hover:after:opacity-100; }
-
-  /* Footer */
-  .social-icon { @apply flex size-10 items-center justify-center rounded-[12px] border border-s3 bg-s2/80 text-p4 shadow-100 transition-all duration-300 hover:-translate-y-0.5 hover:border-p1 hover:bg-s2; }
+  .section-rule { @apply border-t border-s3/70; }
+  .text-balance { text-wrap: balance; }
+  .surface-line { @apply border border-s3/70 bg-s2/40; }
 }
 
 html {
-  scroll-padding-top: 90px;
+  scroll-padding-top: 96px;
   scroll-behavior: smooth;
 }

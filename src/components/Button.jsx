@@ -9,10 +9,18 @@ const Button = ({
   to,
   containerClassName,
   onClick,
+  variant = "primary",
 }) => {
-  const Inner = () => (
-    <>
-      <span className="relative flex min-h-[56px] items-center gap-3 overflow-hidden rounded-[14px] border border-s3 bg-s2 px-6 py-3 shadow-100 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:border-p1/20 group-hover:shadow-200">
+  const Inner = () => {
+    const innerClassName = clsx(
+      "relative flex min-h-[54px] items-center gap-3 overflow-hidden rounded-full px-6 py-3 transition-all duration-300 group-hover:-translate-y-0.5",
+      variant === "primary"
+        ? "bg-p4 text-s2 shadow-100"
+        : "border border-s3/80 bg-s2/65 text-p4"
+    );
+
+    return (
+      <span className={innerClassName}>
         {icon ? (
           <img
             src={icon}
@@ -22,17 +30,15 @@ const Button = ({
           />
         ) : null}
 
-        <span className="relative z-2 text-[15px] font-semibold tracking-[0.01em] text-p4">
+        <span className={clsx("relative z-2 text-[15px] font-semibold tracking-[0.01em]", variant === "primary" ? "text-s2" : "text-p4")}>
           {children}
         </span>
       </span>
-
-      <span className="glow-before glow-after" />
-    </>
-  );
+    );
+  };
 
   const className = clsx(
-    "group relative inline-flex w-fit rounded-[14px] p-px",
+    "group relative inline-flex w-fit",
     containerClassName
   );
 

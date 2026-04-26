@@ -3,7 +3,7 @@ import { profile } from "../data/portfolio.js";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-s3/70">
+    <footer className="section-rule">
       <div className="container py-10">
         <div className="flex w-full flex-col items-center gap-6 lg:flex-row lg:gap-4">
           <div className="small-compact flex items-center justify-center lg:flex-1 lg:justify-start">
