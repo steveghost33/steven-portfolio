@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 import SocialLink from "../components/SocialLink.jsx";
+import ThemeToggle from "../components/ThemeToggle.jsx";
 import { navLinks, profile } from "../data/portfolio.js";
 
-const Header = () => {
+const Header = ({ theme, onToggleTheme }) => {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -29,13 +30,13 @@ const Header = () => {
     >
       <div
         className={clsx(
-          "container flex h-14 items-center justify-between rounded-full border border-transparent transition-all duration-500",
-          hasScrolled && "border-s3 bg-white/82 px-4 shadow-100 backdrop-blur-xl"
+          "container flex h-14 items-center justify-between border border-transparent transition-all duration-500",
+          hasScrolled && "rounded-[16px] border-s3 bg-s2/88 px-4 shadow-100 backdrop-blur-xl"
         )}
       >
         <a
           href="#hero"
-          className="z-[110] rounded-full border border-s3 bg-white/80 px-4 py-2 text-sm font-semibold tracking-[0.14em] text-p4 transition-all duration-300 hover:border-p1/30 hover:text-p1"
+          className="z-[110] rounded-[12px] border border-s3 bg-s2/88 px-4 py-2 text-sm font-semibold tracking-[0.14em] text-p4 transition-all duration-300 hover:border-p1/30 hover:text-p1"
           onClick={() => setIsOpen(false)}
           aria-label={`${profile.name} home`}
         >
@@ -55,6 +56,7 @@ const Header = () => {
         </nav>
 
         <div className="max-lg:hidden flex items-center gap-3">
+          <ThemeToggle theme={theme} onToggle={onToggleTheme} />
           {profile.socials.map((social) => (
             <SocialLink key={social.id} social={social} />
           ))}
@@ -62,10 +64,10 @@ const Header = () => {
 
         <button
           className={clsx(
-            "z-[110] flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold tracking-[0.08em] transition-all duration-300 lg:hidden",
+            "z-[110] flex items-center gap-2 rounded-[12px] border px-4 py-2 text-sm font-semibold tracking-[0.08em] transition-all duration-300 lg:hidden",
             isOpen
               ? "border-p1 bg-p1 text-white shadow-200"
-              : "border-s3 bg-white/90 text-p4 shadow-100 hover:border-p1/40 hover:bg-white"
+              : "border-s3 bg-s2/90 text-p4 shadow-100 hover:border-p1/40 hover:bg-s2"
           )}
           onClick={() => setIsOpen((prev) => !prev)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
@@ -114,6 +116,7 @@ const Header = () => {
               </a>
             ))}
           </nav>
+          <ThemeToggle theme={theme} onToggle={onToggleTheme} />
           <div className="flex items-center gap-4">
             {profile.socials.map((social) => (
               <SocialLink key={social.id} social={social} iconClassName="w-5 h-5" />

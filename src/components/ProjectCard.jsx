@@ -2,8 +2,8 @@ import Button from "./Button.jsx";
 
 const ProjectCard = ({ project }) => {
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-[28px] border border-s3 bg-white/85 shadow-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-200">
-      <div className="m-4 flex h-52 items-center justify-center overflow-hidden rounded-[22px] bg-black-100 md:h-56">
+    <article className="flex h-full flex-col overflow-hidden rounded-[18px] border border-s3 bg-s2/88 shadow-100 transition-all duration-300 hover:-translate-y-1 hover:shadow-200">
+      <div className="m-4 flex h-52 items-center justify-center overflow-hidden rounded-[12px] bg-black-100 md:h-56">
         <img
           src={project.image}
           alt={project.alt}
@@ -20,14 +20,14 @@ const ProjectCard = ({ project }) => {
           {project.tags.map((tag) => (
             <li
               key={tag}
-              className="rounded-full border border-s3 bg-s1 px-3 py-1 text-xs font-medium tracking-[0.02em] text-p5"
+              className="rounded-[10px] border border-s3 bg-s1 px-3 py-1 text-xs font-medium tracking-[0.02em] text-p5"
             >
               {tag}
             </li>
           ))}
         </ul>
 
-        <Button href={project.url} containerClassName="mt-auto self-start" markerFill="#FFF">
+        <Button href={project.url} containerClassName="mt-auto self-start">
           View Project
         </Button>
       </div>

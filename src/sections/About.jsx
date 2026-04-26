@@ -10,7 +10,7 @@ const About = () => {
             <SectionHeading eyebrow="About Me" title="Built for people, not just platforms." align="left" titleClassName="h3" />
           </div>
 
-          <div className="rounded-[32px] border border-s3 bg-white/75 p-8 shadow-100 md:p-10">
+          <div className="rounded-[18px] border border-s3 bg-s2/80 p-8 shadow-100 md:p-10">
             <p className="body-1 mb-6">
               I'm a Detroit-based full-stack developer and technology consultant with 15 years of experience helping nonprofits and small businesses implement technology that actually sticks.
             </p>
@@ -22,7 +22,7 @@ const About = () => {
             </p>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
               {stats.map(({ value, label }) => (
-                <div key={label} className="rounded-[24px] border border-s3 bg-s1 p-6">
+                <div key={label} className="rounded-[14px] border border-s3 bg-s1 p-6">
                   <p className="h4 mb-2 text-p3">{value}</p>
                   <p className="small-1 text-p5">{label}</p>
                 </div>

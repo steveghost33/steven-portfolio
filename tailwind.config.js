@@ -4,19 +4,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        p1: "#0f766e",
-        p2: "#d9f2ef",
-        p3: "#0b5d7a",
-        p4: "#1f2937",
-        p5: "#556070",
-        s1: "#fffdf8",
-        s2: "#ffffff",
-        s3: "#dde5ec",
-        s4: "#c7d8e6",
-        s5: "#f3efe6",
+        p1: "rgb(var(--color-p1) / <alpha-value>)",
+        p2: "rgb(var(--color-p2) / <alpha-value>)",
+        p3: "rgb(var(--color-p3) / <alpha-value>)",
+        p4: "rgb(var(--color-p4) / <alpha-value>)",
+        p5: "rgb(var(--color-p5) / <alpha-value>)",
+        s1: "rgb(var(--color-s1) / <alpha-value>)",
+        s2: "rgb(var(--color-s2) / <alpha-value>)",
+        s3: "rgb(var(--color-s3) / <alpha-value>)",
+        s4: "rgb(var(--color-s4) / <alpha-value>)",
+        s5: "rgb(var(--color-s5) / <alpha-value>)",
         black: {
-          DEFAULT: "#000000",
-          100: "#f7f3ea",
+          DEFAULT: "rgb(var(--color-black) / <alpha-value>)",
+          100: "rgb(var(--color-black-100) / <alpha-value>)",
         },
       },
       boxShadow: {

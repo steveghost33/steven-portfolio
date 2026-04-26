@@ -12,12 +12,12 @@ const Button = ({
 }) => {
   const Inner = () => (
     <>
-      <span className="relative flex min-h-[56px] items-center gap-3 overflow-hidden rounded-full border border-transparent bg-white px-6 py-3 shadow-100 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:border-p1/20 group-hover:shadow-200">
+      <span className="relative flex min-h-[56px] items-center gap-3 overflow-hidden rounded-[14px] border border-s3 bg-s2 px-6 py-3 shadow-100 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:border-p1/20 group-hover:shadow-200">
         {icon ? (
           <img
             src={icon}
             alt={iconAlt}
-            className="z-10 size-5 object-contain"
+            className="icon-image z-10 size-5 object-contain"
             aria-hidden={iconAlt ? undefined : "true"}
           />
         ) : null}
@@ -32,7 +32,7 @@ const Button = ({
   );
 
   const className = clsx(
-    "group relative inline-flex w-fit rounded-full p-px",
+    "group relative inline-flex w-fit rounded-[14px] p-px",
     containerClassName
   );
 

@@ -5,7 +5,7 @@ const Contact = () => {
   return (
     <section id="contact" className="border-t border-s3/70 py-24 max-lg:py-16">
       <div className="container">
-        <div className="mx-auto max-w-4xl rounded-[36px] border border-s3 bg-white/80 px-6 py-12 shadow-200 md:px-10">
+        <div className="mx-auto max-w-4xl rounded-[20px] border border-s3 bg-s2/82 px-6 py-12 shadow-200 md:px-10">
           <SectionHeading
             eyebrow="Get In Touch"
             title="Let’s make the next version of your digital presence feel easier to use."
@@ -21,10 +21,10 @@ const Contact = () => {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col items-center gap-4 rounded-[28px] border border-s3 bg-s1 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-p1/30 hover:bg-white"
+                className="group flex flex-col items-center gap-4 rounded-[16px] border border-s3 bg-s1 p-8 transition-all duration-300 hover:-translate-y-1 hover:border-p1/30 hover:bg-s2"
               >
-                <div className="flex h-14 w-14 items-center justify-center rounded-full border border-s3 bg-white transition-colors duration-300 group-hover:border-p1/30">
-                  <img src={social.icon} alt="" className="w-7 h-7" aria-hidden="true" />
+                <div className="flex h-14 w-14 items-center justify-center rounded-[12px] border border-s3 bg-s2 text-p4 transition-colors duration-300 group-hover:border-p1/30 group-hover:text-p1">
+                  <img src={social.icon} alt="" className="icon-image h-7 w-7" aria-hidden="true" />
                 </div>
                 <div>
                   <p className="body-2 mb-1">{social.title}</p>
@@ -37,7 +37,7 @@ const Contact = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <a
               href={profile.phone.href}
-              className="group flex items-center gap-3 rounded-[24px] border border-s3 bg-s1 px-6 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-p1/30 hover:bg-white"
+              className="group flex items-center gap-3 rounded-[14px] border border-s3 bg-s1 px-6 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-p1/30 hover:bg-s2"
             >
               <span className="text-2xl" aria-hidden="true">☎</span>
               <div className="text-left">
@@ -50,7 +50,7 @@ const Contact = () => {
 
             <a
               href={profile.email.href}
-              className="group flex items-center gap-3 rounded-[24px] border border-s3 bg-s1 px-6 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-p1/30 hover:bg-white"
+              className="group flex items-center gap-3 rounded-[14px] border border-s3 bg-s1 px-6 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-p1/30 hover:bg-s2"
             >
               <span className="text-2xl" aria-hidden="true">✉</span>
               <div className="text-left">

@@ -9,7 +9,7 @@ const SocialLink = ({ social, className, iconClassName = "w-4 h-4" }) => {
       className={clsx("social-icon", className)}
       aria-label={`Visit ${social.title}`}
     >
-      <img src={social.icon} alt="" className={clsx(iconClassName, "object-contain opacity-80")} aria-hidden="true" />
+      <img src={social.icon} alt="" className={clsx(iconClassName, "icon-image object-contain")} aria-hidden="true" />
     </a>
   );
 };

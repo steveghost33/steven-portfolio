@@ -16,14 +16,14 @@ const Skills = () => {
           {skillGroups.map(({ category, skills }) => (
             <div
               key={category}
-              className="rounded-[28px] border border-s3 bg-white/80 p-8 shadow-100"
+              className="rounded-[18px] border border-s3 bg-s2/80 p-8 shadow-100"
             >
               <h3 className="h6 mb-6">{category}</h3>
               <ul className="flex flex-wrap gap-2">
                 {skills.map((skill) => (
                   <li
                     key={skill}
-                    className="rounded-full border border-s3 bg-s1 px-4 py-2 text-sm font-medium text-p5 transition-colors duration-300 hover:border-p1/20 hover:text-p4"
+                    className="rounded-[10px] border border-s3 bg-s1 px-4 py-2 text-sm font-medium text-p5 transition-colors duration-300 hover:border-p1/20 hover:text-p4"
                   >
                     {skill}
                   </li>
