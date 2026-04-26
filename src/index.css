@@ -88,7 +88,7 @@
 }
 
 @layer utilities {
-  .h1 { @apply font-poppins text-[clamp(3.5rem,6.2vw,5.4rem)] font-semibold leading-[0.95] tracking-[-0.055em] text-p4; }
+  .h1 { @apply font-poppins text-[clamp(3.1rem,5.2vw,4.75rem)] font-semibold leading-[0.97] tracking-[-0.05em] text-p4; }
   .h2 { @apply font-poppins text-[clamp(2.6rem,4.8vw,4.2rem)] font-semibold leading-[1] tracking-[-0.05em] text-p4; }
   .h3 { @apply font-poppins text-[clamp(2rem,3.6vw,3rem)] font-semibold leading-[1.02] tracking-[-0.045em] text-p4; }
   .h4 { @apply font-poppins text-[clamp(1.55rem,2.6vw,2.2rem)] font-semibold leading-[1.08] tracking-[-0.04em] text-p4; }
@@ -101,7 +101,7 @@
   .small-2 { @apply text-[0.82rem] font-semibold uppercase leading-[1.4] tracking-[0.2em]; }
   .small-compact { @apply text-[0.88rem] font-medium leading-[1.5]; }
 
-  .container { @apply mx-auto max-w-[1080px] px-8 max-lg:px-6 max-sm:px-5; }
+  .container { @apply mx-auto max-w-[1240px] px-8 max-lg:px-6 max-sm:px-5; }
   .caption { @apply small-2 mb-5 text-p1; }
   .icon-image { filter: var(--icon-filter); }
   .section-rule { @apply border-t border-s3/70; }

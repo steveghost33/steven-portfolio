@@ -11,27 +11,36 @@ const facts = [
 const Hero = () => {
   return (
     <section id="hero" className="relative overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-[240px] overflow-hidden">
-        <div className="absolute left-[-6%] top-10 h-14 w-[24%] rounded-[50%] bg-s5/90" />
-        <div className="absolute left-[14%] top-16 h-12 w-[18%] rounded-[50%] bg-s5/85" />
-        <div className="absolute left-[28%] top-12 h-16 w-[22%] rounded-[50%] bg-s5/78" />
-        <div className="absolute left-[46%] top-18 h-14 w-[20%] rounded-[50%] bg-s5/72" />
-        <div className="absolute left-[60%] top-12 h-18 w-[24%] rounded-[50%] bg-s5/84" />
-        <div className="absolute right-[-4%] top-8 h-16 w-[24%] rounded-[50%] bg-s5/76" />
-        <div className="absolute left-[-8%] top-24 h-16 w-[36%] rotate-[7deg] rounded-[50%] bg-s4/18" />
-        <div className="absolute left-[18%] top-28 h-14 w-[28%] rotate-[-4deg] rounded-[50%] bg-s4/16" />
-        <div className="absolute left-[40%] top-24 h-16 w-[34%] rotate-[6deg] rounded-[50%] bg-s4/14" />
-        <div className="absolute left-[66%] top-30 h-14 w-[28%] rotate-[-7deg] rounded-[50%] bg-s4/16" />
+      <div className="absolute inset-x-0 top-0 h-[250px] overflow-hidden">
+        <svg
+          viewBox="0 0 1440 260"
+          preserveAspectRatio="none"
+          className="h-full w-full"
+          aria-hidden="true"
+        >
+          <path
+            className="fill-s5/95"
+            d="M0 90C95 72 150 150 248 132C346 114 362 85 442 98C539 113 559 162 654 146C754 129 801 74 907 88C1015 103 1037 173 1138 156C1240 139 1304 91 1440 112V0H0Z"
+          />
+          <path
+            className="fill-s5/72"
+            d="M0 134C126 116 176 175 286 160C383 146 430 120 517 132C614 145 639 191 742 176C846 160 891 107 986 121C1082 135 1136 185 1243 173C1323 164 1382 132 1440 122V0H0Z"
+          />
+          <path
+            className="fill-s4/28"
+            d="M0 155C122 134 190 209 304 195C398 183 447 152 545 164C655 178 700 221 801 209C923 195 959 143 1079 155C1184 166 1262 214 1368 198C1401 193 1422 187 1440 180V102C1368 111 1306 149 1227 160C1110 176 1052 116 948 106C835 96 775 157 661 171C564 183 515 127 406 116C308 105 250 161 151 169C95 173 48 164 0 156Z"
+          />
+        </svg>
       </div>
 
       <div className="container relative pb-8 pt-14">
-        <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,1.15fr)_340px_170px]">
+        <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,1.3fr)_360px_170px]">
           <div className="pt-20 lg:pt-24">
             <p className="caption">Full-stack developer</p>
-            <h1 className="h1 max-w-[9.8ch] text-balance">
+            <h1 className="h1 max-w-[11.5ch] text-balance">
               I build clean, useful web experiences and systems that scale.
             </h1>
-            <p className="body-1 mt-7 max-w-[27ch]">
+            <p className="body-1 mt-7 max-w-[31ch]">
               15 years of experience delivering websites, web apps, AI workflows, and CRM solutions for nonprofits and small businesses.
             </p>
 
@@ -51,7 +60,7 @@ const Hero = () => {
             <img
               src="/images/steven-bowman.jpg"
               alt={profile.name}
-              className="relative z-10 h-[410px] w-[300px] object-cover object-center [mask-image:linear-gradient(to_bottom,black_74%,transparent_100%)]"
+              className="relative z-10 h-[430px] w-[320px] object-cover object-center [mask-image:linear-gradient(to_bottom,black_74%,transparent_100%)]"
             />
           </div>
 
