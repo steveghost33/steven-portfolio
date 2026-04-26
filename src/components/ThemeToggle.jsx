@@ -16,12 +16,6 @@ const ThemeToggle = ({ theme, onToggle, className }) => {
     >
       {isDark ? (
         <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current stroke-[1.8]">
-          <path d="M19 12a7 7 0 1 1-7-7" />
-          <path d="M19 3v4" />
-          <path d="M21 5h-4" />
-        </svg>
-      ) : (
-        <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current stroke-[1.8]">
           <circle cx="12" cy="12" r="4.5" />
           <path d="M12 2.5v3" />
           <path d="M12 18.5v3" />
@@ -31,6 +25,12 @@ const ThemeToggle = ({ theme, onToggle, className }) => {
           <path d="M7.38 16.62l-2.1 2.1" />
           <path d="M18.72 18.72l-2.1-2.1" />
           <path d="M7.38 7.38l-2.1-2.1" />
+        </svg>
+      ) : (
+        <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current stroke-[1.8]">
+          <path d="M19 12a7 7 0 1 1-7-7" />
+          <path d="M19 3v4" />
+          <path d="M21 5h-4" />
         </svg>
       )}
     </button>

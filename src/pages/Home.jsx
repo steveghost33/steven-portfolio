@@ -32,19 +32,17 @@ const Home = () => {
   };
 
   return (
-    <div className={`min-h-screen bg-s1 px-3 py-3 text-p4 transition-colors duration-300 md:px-4 md:py-4 ${theme === "dark" ? "theme-dark" : ""}`}>
-      <div className="mx-auto max-w-[1160px] overflow-hidden rounded-[28px] border border-s3/70 bg-s2/88 shadow-[0_18px_60px_rgba(31,41,55,0.08)]">
-        <Header theme={theme} onToggleTheme={handleToggleTheme} />
-        <main className="overflow-hidden">
-          <Hero />
-          <About />
-          <Projects />
-          <Skills />
-          <Experience />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
+    <div className={`min-h-screen bg-s1 text-p4 transition-colors duration-300 ${theme === "dark" ? "theme-dark" : ""}`}>
+      <Header theme={theme} onToggleTheme={handleToggleTheme} />
+      <main className="overflow-hidden">
+        <Hero />
+        <About />
+        <Projects />
+        <Skills />
+        <Experience />
+        <Contact />
+      </main>
+      <Footer />
     </div>
   );
 };
