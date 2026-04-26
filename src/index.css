@@ -5,37 +5,43 @@
 @tailwind utilities;
 
 :root {
-  --color-p1: 236 31 123;
-  --color-p2: 193 223 245;
-  --color-p3: 84 103 143;
-  --color-p4: 20 26 37;
-  --color-p5: 93 106 133;
-  --color-s1: 244 239 231;
-  --color-s2: 252 249 243;
-  --color-s3: 203 214 230;
-  --color-s4: 163 196 228;
-  --color-s5: 220 234 247;
+  --color-p1: 108 133 168;
+  --color-p2: 210 223 238;
+  --color-p3: 103 119 145;
+  --color-p4: 33 39 53;
+  --color-p5: 102 110 126;
+  --color-s1: 245 240 233;
+  --color-s2: 251 248 242;
+  --color-s3: 217 222 229;
+  --color-s4: 190 203 220;
+  --color-s5: 227 234 242;
   --color-black: 0 0 0;
-  --color-black-100: 229 223 212;
-  --page-glow: linear-gradient(180deg, #acd2ef 0%, #cfe6f6 25%, #f4efe7 26%, #f4efe7 100%);
+  --color-black-100: 231 226 217;
+  --page-glow:
+    radial-gradient(circle at 18% 8%, rgba(255, 247, 232, 0.95), transparent 22%),
+    radial-gradient(circle at 82% 10%, rgba(255, 242, 210, 0.6), transparent 18%),
+    linear-gradient(180deg, #f6f1e8 0%, #f3eee7 100%);
   --page-base: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
   --icon-filter: none;
 }
 
 .theme-dark {
-  --color-p1: 255 51 146;
-  --color-p2: 23 46 68;
-  --color-p3: 124 143 174;
-  --color-p4: 242 246 251;
-  --color-p5: 161 171 188;
-  --color-s1: 11 15 20;
-  --color-s2: 18 28 41;
-  --color-s3: 53 66 87;
-  --color-s4: 43 56 74;
-  --color-s5: 25 36 50;
+  --color-p1: 151 168 201;
+  --color-p2: 28 39 54;
+  --color-p3: 155 165 183;
+  --color-p4: 240 243 247;
+  --color-p5: 169 177 191;
+  --color-s1: 20 26 34;
+  --color-s2: 26 35 46;
+  --color-s3: 63 74 90;
+  --color-s4: 78 91 111;
+  --color-s5: 35 47 62;
   --color-black: 255 255 255;
-  --color-black-100: 14 22 32;
-  --page-glow: linear-gradient(180deg, #192737 0%, #21384b 24%, #0b0f14 25%, #0b0f14 100%);
+  --color-black-100: 18 25 34;
+  --page-glow:
+    radial-gradient(circle at 18% 8%, rgba(45, 58, 75, 0.55), transparent 22%),
+    radial-gradient(circle at 82% 10%, rgba(61, 74, 93, 0.45), transparent 18%),
+    linear-gradient(180deg, #1b2430 0%, #171e28 100%);
   --page-base: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
   --icon-filter: invert(1);
 }
@@ -95,7 +101,7 @@
   .small-2 { @apply text-[0.82rem] font-semibold uppercase leading-[1.4] tracking-[0.2em]; }
   .small-compact { @apply text-[0.88rem] font-medium leading-[1.5]; }
 
-  .container { @apply mx-auto max-w-[1220px] px-8 max-lg:px-6 max-sm:px-5; }
+  .container { @apply mx-auto max-w-[1080px] px-8 max-lg:px-6 max-sm:px-5; }
   .caption { @apply small-2 mb-5 text-p1; }
   .icon-image { filter: var(--icon-filter); }
   .section-rule { @apply border-t border-s3/70; }

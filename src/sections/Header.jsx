@@ -24,26 +24,29 @@ const Header = ({ theme, onToggleTheme }) => {
   return (
     <header
       className={clsx(
-        "fixed left-0 top-0 z-50 w-full transition-all duration-500",
-        hasScrolled ? "bg-s1/85 backdrop-blur-xl" : "bg-transparent"
+        "sticky left-0 top-0 z-50 w-full transition-all duration-500",
+        hasScrolled ? "bg-s2/88 backdrop-blur-xl" : "bg-transparent"
       )}
     >
-      <div className="container flex min-h-[84px] items-center justify-between gap-6 border-b border-transparent">
+      <div className="container flex min-h-[84px] items-center justify-between gap-6 border-b border-s3/70">
         <a
           href="#hero"
           onClick={() => setIsOpen(false)}
           aria-label={`${profile.name} home`}
-          className="text-[1.1rem] font-semibold tracking-[-0.03em] text-p4 transition-colors duration-300 hover:text-p1"
+          className="text-[1.15rem] font-bold tracking-[-0.04em] text-p4 transition-colors duration-300 hover:text-p1"
         >
-          {profile.name}
+          {profile.initials}.
         </a>
 
         <nav className="hidden items-center gap-10 lg:flex" aria-label="Primary navigation">
-          {navLinks.map(({ title, href }) => (
+          {navLinks.map(({ title, href }, index) => (
             <a
               key={title}
               href={href}
-              className="text-[1rem] font-medium text-p4/85 transition-colors duration-300 hover:text-p4"
+              className={clsx(
+                "relative text-[1rem] font-medium text-p4/85 transition-colors duration-300 hover:text-p4",
+                index === 0 && "after:absolute after:-bottom-4 after:left-0 after:h-0.5 after:w-9 after:bg-p4 after:content-['']"
+              )}
             >
               {title}
             </a>
@@ -51,10 +54,21 @@ const Header = ({ theme, onToggleTheme }) => {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <ThemeToggle theme={theme} onToggle={onToggleTheme} />
           {profile.socials.map((social) => (
             <SocialLink key={social.id} social={social} />
           ))}
+          <a
+            href={profile.email.href}
+            aria-label={`Email ${profile.name}`}
+            className="social-icon"
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4 fill-none stroke-current stroke-[1.8]">
+              <path d="M3.75 6.75h16.5v10.5H3.75z" />
+              <path d="m4.5 7.5 7.5 6 7.5-6" />
+            </svg>
+          </a>
+          <span className="mx-2 h-6 w-px bg-s3/80" aria-hidden="true" />
+          <ThemeToggle theme={theme} onToggle={onToggleTheme} />
         </div>
 
         <button
@@ -76,7 +90,7 @@ const Header = ({ theme, onToggleTheme }) => {
       <div
         id="mobile-navigation"
         className={clsx(
-          "border-t border-s3/70 bg-s1/95 backdrop-blur-xl lg:hidden",
+          "border-t border-s3/70 bg-s2/95 backdrop-blur-xl lg:hidden",
           isOpen ? "block" : "hidden"
         )}
       >

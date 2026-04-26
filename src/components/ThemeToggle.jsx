@@ -8,7 +8,7 @@ const ThemeToggle = ({ theme, onToggle, className }) => {
       type="button"
       onClick={onToggle}
       className={clsx(
-        "inline-flex h-11 w-11 items-center justify-center rounded-full border border-s3/80 bg-s2/70 text-p4 transition-all duration-300 hover:border-p1/40 hover:text-p1",
+        "inline-flex h-11 w-11 items-center justify-center rounded-full border border-s3/80 bg-s2/55 text-p4 transition-all duration-300 hover:border-p1/40 hover:text-p1",
         className
       )}
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}

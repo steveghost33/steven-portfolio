@@ -1,7 +1,9 @@
 export const navLinks = [
+  { title: "Home", href: "#hero" },
   { title: "About", href: "#about" },
   { title: "Projects", href: "#projects" },
   { title: "Skills", href: "#skills" },
+  { title: "Experience", href: "#experience" },
   { title: "Contact", href: "#contact" },
 ];
 
@@ -36,9 +38,24 @@ export const profile = {
 };
 
 export const stats = [
-  { value: "15+", label: "Years Experience" },
-  { value: "50+", label: "Projects Delivered" },
-  { value: "Detroit", label: "Based & Mission-Driven" },
+  { value: "15+", label: "Years of experience" },
+  { value: "50+", label: "Projects delivered" },
+  { value: "Detroit", label: "Based in Michigan" },
+];
+
+export const experienceHighlights = [
+  {
+    title: "Full-stack product development",
+    description: "Build responsive marketing sites, internal platforms, and customer-facing tools with a focus on clarity, performance, and maintainable structure.",
+  },
+  {
+    title: "CRM and workflow implementation",
+    description: "Design systems that help teams manage relationships, automate repetitive work, and reduce friction across day-to-day operations.",
+  },
+  {
+    title: "AI and training systems",
+    description: "Create practical AI workflows and digital learning experiences that teams can adopt without a painful ramp-up.",
+  },
 ];
 
 export const projects = [

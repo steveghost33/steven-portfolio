@@ -13,7 +13,7 @@ const Button = ({
 }) => {
   const Inner = () => {
     const innerClassName = clsx(
-      "relative flex min-h-[54px] items-center gap-3 overflow-hidden rounded-full px-6 py-3 transition-all duration-300 group-hover:-translate-y-0.5",
+      "relative flex min-h-[54px] items-center gap-3 overflow-hidden rounded-[10px] px-6 py-3 transition-all duration-300 group-hover:-translate-y-0.5",
       variant === "primary"
         ? "bg-p4 text-s2 shadow-100"
         : "border border-s3/80 bg-s2/65 text-p4"

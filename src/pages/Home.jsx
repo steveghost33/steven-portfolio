@@ -4,6 +4,7 @@ import Hero from "../sections/Hero.jsx";
 import About from "../sections/About.jsx";
 import Projects from "../sections/Projects.jsx";
 import Skills from "../sections/Skills.jsx";
+import Experience from "../sections/Experience.jsx";
 import Contact from "../sections/Contact.jsx";
 import Footer from "../sections/Footer.jsx";
 
@@ -31,16 +32,19 @@ const Home = () => {
   };
 
   return (
-    <div className={`min-h-screen bg-s1 text-p4 transition-colors duration-300 ${theme === "dark" ? "theme-dark" : ""}`}>
-      <Header theme={theme} onToggleTheme={handleToggleTheme} />
-      <main className="overflow-hidden">
-        <Hero />
-        <About />
-        <Projects />
-        <Skills />
-        <Contact />
-      </main>
-      <Footer />
+    <div className={`min-h-screen bg-s1 px-3 py-3 text-p4 transition-colors duration-300 md:px-4 md:py-4 ${theme === "dark" ? "theme-dark" : ""}`}>
+      <div className="mx-auto max-w-[1180px] overflow-hidden rounded-[30px] border border-s3/70 bg-s2/82 shadow-[0_18px_60px_rgba(31,41,55,0.08)]">
+        <Header theme={theme} onToggleTheme={handleToggleTheme} />
+        <main className="overflow-hidden">
+          <Hero />
+          <About />
+          <Projects />
+          <Skills />
+          <Experience />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 };
