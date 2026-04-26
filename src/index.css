@@ -17,10 +17,10 @@
   --color-s5: 227 234 242;
   --color-black: 0 0 0;
   --color-black-100: 231 226 217;
-  --wave-1: 236 238 241;
-  --wave-2: 226 231 236;
-  --wave-3: 214 222 230;
-  --wave-4: 200 211 222;
+  --wave-1: 244 244 243;
+  --wave-2: 230 231 230;
+  --wave-3: 210 212 211;
+  --wave-4: 184 187 187;
   --page-glow:
     radial-gradient(circle at 18% 8%, rgba(255, 247, 232, 0.95), transparent 22%),
     radial-gradient(circle at 82% 10%, rgba(255, 242, 210, 0.6), transparent 18%),
@@ -42,10 +42,10 @@
   --color-s5: 35 47 62;
   --color-black: 255 255 255;
   --color-black-100: 18 25 34;
-  --wave-1: 70 83 101;
-  --wave-2: 58 70 88;
-  --wave-3: 47 59 76;
-  --wave-4: 37 49 66;
+  --wave-1: 104 108 112;
+  --wave-2: 84 88 92;
+  --wave-3: 66 70 75;
+  --wave-4: 49 53 59;
   --page-glow:
     radial-gradient(circle at 18% 8%, rgba(45, 58, 75, 0.55), transparent 22%),
     radial-gradient(circle at 82% 10%, rgba(61, 74, 93, 0.45), transparent 18%),
