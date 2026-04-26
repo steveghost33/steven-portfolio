@@ -17,6 +17,9 @@
   --color-s5: 227 234 242;
   --color-black: 0 0 0;
   --color-black-100: 231 226 217;
+  --wave-1: 228 234 241;
+  --wave-2: 214 222 232;
+  --wave-3: 198 208 221;
   --page-glow:
     radial-gradient(circle at 18% 8%, rgba(255, 247, 232, 0.95), transparent 22%),
     radial-gradient(circle at 82% 10%, rgba(255, 242, 210, 0.6), transparent 18%),
@@ -38,6 +41,9 @@
   --color-s5: 35 47 62;
   --color-black: 255 255 255;
   --color-black-100: 18 25 34;
+  --wave-1: 57 70 90;
+  --wave-2: 44 57 75;
+  --wave-3: 31 42 58;
   --page-glow:
     radial-gradient(circle at 18% 8%, rgba(45, 58, 75, 0.55), transparent 22%),
     radial-gradient(circle at 82% 10%, rgba(61, 74, 93, 0.45), transparent 18%),
