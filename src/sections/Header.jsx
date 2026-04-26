@@ -23,14 +23,19 @@ const Header = () => {
   return (
     <header
       className={clsx(
-        "fixed top-0 left-0 w-full z-50 py-5 transition-all duration-500",
-        hasScrolled && "py-3 bg-black-100 backdrop-blur-[8px]"
+        "fixed left-0 top-0 z-50 w-full py-5 transition-all duration-500",
+        hasScrolled && "py-3"
       )}
     >
-      <div className="container flex items-center justify-between h-14">
+      <div
+        className={clsx(
+          "container flex h-14 items-center justify-between rounded-full border border-transparent transition-all duration-500",
+          hasScrolled && "border-s3 bg-white/82 px-4 shadow-100 backdrop-blur-xl"
+        )}
+      >
         <a
           href="#hero"
-          className="text-p1 font-black text-2xl tracking-widest hover:text-p4 transition-colors duration-300 z-[110] border border-p1/30 rounded-xl px-3 py-1 hover:bg-p1/10"
+          className="z-[110] rounded-full border border-s3 bg-white/80 px-4 py-2 text-sm font-semibold tracking-[0.14em] text-p4 transition-all duration-300 hover:border-p1/30 hover:text-p1"
           onClick={() => setIsOpen(false)}
           aria-label={`${profile.name} home`}
         >
@@ -42,7 +47,7 @@ const Header = () => {
             <a
               key={title}
               href={href}
-              className="base-bold text-p4 uppercase transition-colors duration-300 hover:text-p1"
+              className="text-[15px] font-medium text-p5 transition-colors duration-300 hover:text-p4"
             >
               {title}
             </a>
@@ -57,10 +62,10 @@ const Header = () => {
 
         <button
           className={clsx(
-            "lg:hidden z-[110] flex items-center gap-2 rounded-full border-2 px-4 py-2 text-sm font-bold uppercase tracking-[0.08em] transition-all duration-300",
+            "z-[110] flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold tracking-[0.08em] transition-all duration-300 lg:hidden",
             isOpen
-              ? "border-p1 bg-p1 text-s1 shadow-200"
-              : "border-p1/70 bg-s2/90 text-p4 shadow-100 hover:bg-p1 hover:text-s1"
+              ? "border-p1 bg-p1 text-white shadow-200"
+              : "border-s3 bg-white/90 text-p4 shadow-100 hover:border-p1/40 hover:bg-white"
           )}
           onClick={() => setIsOpen((prev) => !prev)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
@@ -93,7 +98,7 @@ const Header = () => {
         <div
           id="mobile-navigation"
           className={clsx(
-            "lg:hidden fixed inset-0 w-full h-screen bg-s2 z-[100] flex flex-col items-center justify-center gap-10 transition-opacity duration-300",
+            "fixed inset-0 z-[100] flex h-screen w-full flex-col items-center justify-center gap-10 bg-s1/95 transition-opacity duration-300 lg:hidden",
             isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
           )}
         >
@@ -103,7 +108,7 @@ const Header = () => {
                 key={title}
                 href={href}
                 onClick={() => setIsOpen(false)}
-                className="h5 text-p4 uppercase hover:text-p1 transition-colors duration-300"
+                className="h5 transition-colors duration-300 hover:text-p1"
               >
                 {title}
               </a>

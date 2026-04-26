@@ -6,35 +6,33 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center pt-24 pb-20 max-lg:pt-28 max-md:pt-24"
+      className="relative flex min-h-screen items-center pb-20 pt-28 max-lg:pt-24 max-md:pb-14"
     >
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-p2/10 rounded-full blur-[120px]" />
-        <div className="absolute top-1/2 left-1/4 w-[300px] h-[300px] bg-s4/20 rounded-full blur-[100px]" />
+        <div className="absolute right-[8%] top-[14%] h-[26rem] w-[26rem] rounded-full bg-p2/60 blur-[120px]" />
+        <div className="absolute left-[10%] top-[8%] h-[18rem] w-[18rem] rounded-full bg-s5 blur-[100px]" />
       </div>
 
       <div className="container relative z-2">
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
-          <div className="flex-1 max-w-[560px] max-lg:text-center max-lg:mx-auto">
-            <div className="caption small-2 uppercase text-p3 mb-5">
+        <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)] lg:gap-20">
+          <div className="max-w-[640px] max-lg:mx-auto max-lg:text-center">
+            <div className="caption">
               Detroit-Based Developer & Consultant
             </div>
 
-            <h1 className="mb-6 text-p4 uppercase text-[clamp(48px,7vw,84px)] font-black leading-none max-lg:mb-7 max-md:mb-4">
-              Steven
-              <br />
-              Bowman
+            <h1 className="h1 mb-6 max-w-[9ch] text-balance max-lg:mx-auto">
+              Clean digital experiences for teams doing meaningful work.
             </h1>
 
-            <p className="mb-3 body-2 text-p3">
+            <p className="mb-4 body-2 text-p3">
               Full-Stack Developer & Technology Consultant
             </p>
 
-            <p className="mb-10 body-3 text-p5 max-w-[480px] max-lg:mx-auto">
+            <p className="mb-10 body-3 max-w-[58ch] max-lg:mx-auto">
               15 years of experience building websites, AI workflows, CRM systems, and digital training programs for nonprofits and small businesses across Detroit and beyond. I build technology that actually gets used.
             </p>
 
-            <div className="flex flex-wrap gap-4 max-lg:justify-center">
+            <div className="mb-12 flex flex-wrap gap-4 max-lg:justify-center">
               <Button href="#projects" icon="/images/magictouch.svg">
                 View My Work
               </Button>
@@ -42,22 +40,50 @@ const Hero = () => {
                 <ExternalProfileLink key={social.id} social={social} />
               ))}
             </div>
+
+            <dl className="grid gap-4 text-left sm:grid-cols-3">
+              <div className="rounded-[24px] border border-s3 bg-white/75 p-5 shadow-100">
+                <dt className="small-2 text-p3">Based In</dt>
+                <dd className="mt-2 text-lg font-semibold text-p4">{profile.location}</dd>
+              </div>
+              <div className="rounded-[24px] border border-s3 bg-white/75 p-5 shadow-100">
+                <dt className="small-2 text-p3">Focus</dt>
+                <dd className="mt-2 text-lg font-semibold text-p4">Web, CRM, AI</dd>
+              </div>
+              <div className="rounded-[24px] border border-s3 bg-white/75 p-5 shadow-100">
+                <dt className="small-2 text-p3">Approach</dt>
+                <dd className="mt-2 text-lg font-semibold text-p4">Useful over flashy</dd>
+              </div>
+            </dl>
           </div>
 
-          <div className="flex-shrink-0">
-            <div className="relative">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-p1/40 via-p2/30 to-transparent blur-2xl scale-110" />
-              <div className="relative w-[300px] h-[300px] lg:w-[380px] lg:h-[380px] rounded-full overflow-hidden border-2 border-p1/30 shadow-500">
+          <div className="relative max-w-[430px] justify-self-center lg:justify-self-end">
+            <div className="absolute inset-x-6 bottom-0 top-16 rounded-[36px] bg-white/50 blur-2xl" />
+            <div className="relative overflow-hidden rounded-[32px] border border-white/70 bg-white/80 p-5 shadow-500 backdrop-blur">
+              <div className="mb-4 flex items-center justify-between rounded-full border border-s3 bg-s1 px-4 py-3">
+                <div>
+                  <p className="small-2 text-p3">Steven Bowman</p>
+                  <p className="small-1 text-p5">Senior full-stack developer</p>
+                </div>
+                <span className="rounded-full bg-p2 px-3 py-1 text-xs font-semibold text-p3">
+                  Available for select projects
+                </span>
+              </div>
+              <div className="relative h-[360px] overflow-hidden rounded-[28px] bg-black-100">
                 <img
                   src="/images/steven-bowman.jpg"
                   alt={profile.name}
-                  className="w-full h-full object-cover object-center"
+                  className="h-full w-full object-cover object-center"
                 />
               </div>
-              <div className="absolute -inset-4 rounded-full border border-dashed border-s3/40 pointer-events-none" />
+              <div className="mt-4 rounded-[24px] border border-s3 bg-s1 p-5">
+                <p className="small-2 text-p3">What I bring</p>
+                <p className="mt-3 body-3">
+                  Strategy-minded product thinking, careful implementation, and systems that feel approachable to the people who use them every day.
+                </p>
+              </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>

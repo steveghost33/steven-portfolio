@@ -8,7 +8,7 @@ import Footer from "../sections/Footer.jsx";
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-s1">
+    <div className="min-h-screen bg-s1 text-p4">
       <Header />
       <main className="overflow-hidden">
         <Hero />
