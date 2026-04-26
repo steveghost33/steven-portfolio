@@ -88,7 +88,7 @@
 }
 
 @layer utilities {
-  .h1 { @apply font-poppins text-[clamp(3.8rem,8vw,6.4rem)] font-semibold leading-[0.95] tracking-[-0.06em] text-p4; }
+  .h1 { @apply font-poppins text-[clamp(3.5rem,6.2vw,5.4rem)] font-semibold leading-[0.95] tracking-[-0.055em] text-p4; }
   .h2 { @apply font-poppins text-[clamp(2.6rem,4.8vw,4.2rem)] font-semibold leading-[1] tracking-[-0.05em] text-p4; }
   .h3 { @apply font-poppins text-[clamp(2rem,3.6vw,3rem)] font-semibold leading-[1.02] tracking-[-0.045em] text-p4; }
   .h4 { @apply font-poppins text-[clamp(1.55rem,2.6vw,2.2rem)] font-semibold leading-[1.08] tracking-[-0.04em] text-p4; }
@@ -107,6 +107,8 @@
   .section-rule { @apply border-t border-s3/70; }
   .text-balance { text-wrap: balance; }
   .surface-line { @apply border border-s3/70 bg-s2/40; }
+  .social-icon { @apply inline-flex h-8 w-8 items-center justify-center text-p4/90 transition-colors duration-300 hover:text-p1; }
+  .social-icon-box { @apply inline-flex h-10 w-10 items-center justify-center rounded-full border border-s3/80 bg-s2/55 text-p4 transition-colors duration-300 hover:border-p1/40 hover:text-p1; }
 }
 
 html {

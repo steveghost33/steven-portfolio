@@ -22,7 +22,7 @@ const Contact = () => {
                 rel="noopener noreferrer"
                 className="group border-t border-s3/70 py-6 transition-colors duration-300 hover:border-p1/40"
               >
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full border border-s3/80 bg-s2/55">
+                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full border border-s3/80 bg-s2/55">
                   <img src={social.icon} alt="" className="icon-image h-6 w-6" aria-hidden="true" />
                 </div>
                 <p className="h5">{social.title}</p>

@@ -55,7 +55,7 @@ const Header = ({ theme, onToggleTheme }) => {
 
         <div className="hidden items-center gap-3 lg:flex">
           {profile.socials.map((social) => (
-            <SocialLink key={social.id} social={social} />
+            <SocialLink key={social.id} social={social} iconClassName="h-4 w-4" variant="plain" />
           ))}
           <a
             href={profile.email.href}
@@ -110,7 +110,7 @@ const Header = ({ theme, onToggleTheme }) => {
           <div className="flex items-center gap-3">
             <ThemeToggle theme={theme} onToggle={onToggleTheme} />
             {profile.socials.map((social) => (
-              <SocialLink key={social.id} social={social} iconClassName="w-5 h-5" />
+              <SocialLink key={social.id} social={social} iconClassName="h-4 w-4" variant="plain" />
             ))}
           </div>
         </div>
