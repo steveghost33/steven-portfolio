@@ -52,15 +52,6 @@ export const projects = [
     url: "https://www.ellatechsolutions.com",
   },
   {
-    title: "Peak Form Fitness",
-    image: "/images/projects/peak-form.png",
-    alt: "Peak Form Fitness website — fitness business site with service packages, appointment booking, and e-commerce",
-    description:
-      "A fitness business website featuring service packages, appointment booking, and a branded e-commerce experience. Built for speed, mobile usability, and conversion.",
-    tags: ["Web Design", "E-Commerce", "Booking Integration"],
-    url: "https://peak-form-fitness.vercel.app",
-  },
-  {
     title: "Team Cabin",
     image: "/images/projects/teamcabin.png",
     alt: "Team Cabin band website — indie music website with interactive fan engagement game",
