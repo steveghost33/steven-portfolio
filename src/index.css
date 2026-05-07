@@ -123,3 +123,16 @@ html {
   scroll-padding-top: 96px;
   scroll-behavior: smooth;
 }
+
+/* Hero photo — radial mask fades all edges/corners so no hard rectangle is visible */
+.hero-photo {
+  -webkit-mask-image: radial-gradient(ellipse 88% 78% at 50% 32%, black 20%, rgba(0,0,0,0.85) 48%, transparent 86%);
+  mask-image: radial-gradient(ellipse 88% 78% at 50% 32%, black 20%, rgba(0,0,0,0.85) 48%, transparent 86%);
+}
+
+@media (min-width: 1024px) {
+  .hero-photo {
+    -webkit-mask-image: radial-gradient(ellipse 80% 90% at 50% 40%, black 25%, rgba(0,0,0,0.85) 55%, transparent 90%);
+    mask-image: radial-gradient(ellipse 80% 90% at 50% 40%, black 25%, rgba(0,0,0,0.85) 55%, transparent 90%);
+  }
+}

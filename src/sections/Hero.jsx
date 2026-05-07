@@ -76,10 +76,7 @@ const Hero = () => {
             <img
               src="/images/steven-bowman.jpg"
               alt={profile.name}
-              className="relative z-10 w-full h-full object-cover object-top
-                         [mask-image:linear-gradient(to_bottom,black_70%,transparent_100%)]
-                         lg:h-[430px] lg:w-[320px] lg:object-center
-                         lg:[mask-image:linear-gradient(to_bottom,black_74%,transparent_100%)]"
+              className="hero-photo relative z-10 w-full h-full object-cover object-top lg:h-[430px] lg:w-[320px] lg:object-center"
             />
           </div>
 
