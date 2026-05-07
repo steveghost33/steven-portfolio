@@ -60,8 +60,31 @@ const Hero = () => {
       </div>
 
       <div className="container relative pb-8 pt-14">
-        <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,1.3fr)_360px_170px]">
-          <div className="pt-20 lg:pt-24">
+        {/*
+          Mobile:  flex-col, photo first (order-1), text second (order-2), facts last (order-3)
+          Desktop: 3-column grid — text | photo | facts
+        */}
+        <div className="flex flex-col lg:grid lg:items-end lg:gap-10 lg:grid-cols-[minmax(0,1.3fr)_360px_170px]">
+
+          {/* Photo — first on mobile, center column on desktop */}
+          <div className="order-1 lg:order-2 relative flex items-end justify-center
+                          lg:min-h-[420px]
+                          mt-14 mx-auto w-[200px] h-[260px]
+                          lg:mt-0 lg:w-auto lg:h-auto lg:mx-0">
+            <div className="absolute bottom-0 h-10 w-[88%] rounded-[50%] bg-black/12 blur-xl lg:h-16" />
+            <div className="absolute bottom-[16%] left-[-8%] h-16 w-16 rounded-full bg-s5/70 blur-2xl lg:h-24 lg:w-24" />
+            <img
+              src="/images/steven-bowman.jpg"
+              alt={profile.name}
+              className="relative z-10 w-full h-full object-cover object-top
+                         [mask-image:linear-gradient(to_bottom,black_70%,transparent_100%)]
+                         lg:h-[430px] lg:w-[320px] lg:object-center
+                         lg:[mask-image:linear-gradient(to_bottom,black_74%,transparent_100%)]"
+            />
+          </div>
+
+          {/* Text — second on mobile, first column on desktop */}
+          <div className="order-2 lg:order-1 pt-4 lg:pt-24">
             <p className="caption">Full-stack developer</p>
             <h1 className="h1 max-w-[11.5ch] text-balance">
               I build clean, useful web experiences and systems that scale.
@@ -80,17 +103,8 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="relative flex min-h-[420px] items-end justify-center">
-            <div className="absolute bottom-0 h-16 w-[88%] rounded-[50%] bg-black/12 blur-xl" />
-            <div className="absolute bottom-[16%] left-[-8%] h-24 w-24 rounded-full bg-s5/70 blur-2xl" />
-            <img
-              src="/images/steven-bowman.jpg"
-              alt={profile.name}
-              className="relative z-10 h-[430px] w-[320px] object-cover object-center [mask-image:linear-gradient(to_bottom,black_74%,transparent_100%)]"
-            />
-          </div>
-
-          <dl className="flex flex-col gap-6 border-l border-s3/70 pl-6 pb-6">
+          {/* Facts — last on mobile, third column on desktop */}
+          <dl className="order-3 mt-8 flex flex-col gap-6 border-l border-s3/70 pl-6 pb-6 lg:mt-0">
             {facts.map(({ label, detail, icon }) => (
               <div key={label} className="grid grid-cols-[20px_minmax(0,1fr)] items-start gap-3 border-b border-s3/55 pb-4 last:border-b-0 last:pb-0">
                 <span className="mt-0.5 text-p5" aria-hidden="true">
