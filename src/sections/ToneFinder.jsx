@@ -1,5 +1,4 @@
 import { useState, useRef } from "react";
-import SectionHeading from "../components/SectionHeading.jsx";
 
 const TONE_DEFINITIONS = [
   {
@@ -94,15 +93,6 @@ const EXAMPLE_PROMPTS = [
   },
 ];
 
-const TONE_COLORS = {
-  formal:     { bar: "bg-p1",   badge: "bg-p2/60 text-p3",     dot: "bg-p1" },
-  casual:     { bar: "bg-s4",   badge: "bg-s5/80 text-p3",     dot: "bg-s4" },
-  confident:  { bar: "bg-p3",   badge: "bg-s5/80 text-p3",     dot: "bg-p3" },
-  persuasive: { bar: "bg-p1/70",badge: "bg-p2/50 text-p3",     dot: "bg-p1/70" },
-  warm:       { bar: "bg-s4/80",badge: "bg-s5/60 text-p5",     dot: "bg-s4/80" },
-  technical:  { bar: "bg-p3/80",badge: "bg-s3/60 text-p5",     dot: "bg-p3/80" },
-};
-
 function analyzeTone(text) {
   const lower = text.toLowerCase();
   const words = lower.match(/\b\w+\b/g) || [];
@@ -113,20 +103,17 @@ function analyzeTone(text) {
 
   for (const tone of TONE_DEFINITIONS) {
     let score = 0;
-
     for (const kw of tone.keywords) {
       const re = new RegExp(`\\b${kw.replace(/\s+/g, "\\s+")}\\b`, "gi");
       const matches = text.match(re);
       if (matches) score += matches.length * 2;
     }
-
     if (tone.boostPatterns) {
       for (const pat of tone.boostPatterns) {
         const matches = text.match(pat);
         if (matches) score += matches.length;
       }
     }
-
     if (tone.penaltyWords) {
       for (const pw of tone.penaltyWords) {
         const re = new RegExp(`\\b${pw.replace(/\s+/g, "\\s+")}\\b`, "gi");
@@ -134,7 +121,6 @@ function analyzeTone(text) {
         if (matches) score = Math.max(0, score - matches.length * 1.5);
       }
     }
-
     scores[tone.key] = score;
   }
 
@@ -153,13 +139,11 @@ function analyzeTone(text) {
     percentages[key] = Math.round((scores[key] / total) * 100);
   }
 
-  const sorted = TONE_DEFINITIONS.map((t) => ({
+  return TONE_DEFINITIONS.map((t) => ({
     ...t,
     score: percentages[t.key] || 0,
     rawScore: scores[t.key] || 0,
   })).sort((a, b) => b.score - a.score);
-
-  return sorted;
 }
 
 const ToneFinder = () => {
@@ -171,8 +155,7 @@ const ToneFinder = () => {
   const handleAnalyze = () => {
     const trimmed = text.trim();
     if (!trimmed) return;
-    const tones = analyzeTone(trimmed);
-    setResults(tones);
+    setResults(analyzeTone(trimmed));
     setAnalyzed(true);
   };
 
@@ -190,22 +173,24 @@ const ToneFinder = () => {
     textareaRef.current?.focus();
   };
 
+  const dominant = results?.[0];
   const topTones = results ? results.filter((t) => t.score > 0).slice(0, 3) : [];
-  const dominant = results ? results[0] : null;
 
   return (
-    <section id="tone-finder" className="section-rule py-24 max-lg:py-16">
+    <section id="tone-finder" className="section-rule py-20 max-lg:py-14">
       <div className="container">
-        <SectionHeading
-          eyebrow="Tone Finder"
-          title="Paste your copy. See how it sounds."
-          description="Drop in a paragraph — job post, sales email, product description — and get an instant read on the tone your words are projecting."
-          titleClassName="h2 max-lg:h3"
-          className="mb-14 max-lg:mb-10"
-        />
+        <div className="mb-12 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="caption">Tone Finder</p>
+            <h2 className="h2 max-w-[18ch] text-balance">Paste your copy. See how it sounds.</h2>
+          </div>
+          <p className="body-3 max-w-[44ch] lg:text-right">
+            Drop in a paragraph — job post, sales email, product description — and get an instant tone breakdown.
+          </p>
+        </div>
 
-        <div className="grid gap-8 lg:grid-cols-[1fr_400px] lg:items-start">
-          {/* Input panel */}
+        <div className="grid gap-6 lg:grid-cols-[1fr_360px] lg:items-start">
+          {/* Input */}
           <div className="flex flex-col gap-4">
             <div className="relative">
               <textarea
@@ -213,17 +198,14 @@ const ToneFinder = () => {
                 value={text}
                 onChange={(e) => {
                   setText(e.target.value);
-                  if (analyzed) {
-                    setResults(null);
-                    setAnalyzed(false);
-                  }
+                  if (analyzed) { setResults(null); setAnalyzed(false); }
                 }}
-                placeholder="Paste or type any copy here — an email, a headline, a job description…"
+                placeholder="Paste or type any copy here — an email, headline, job description…"
                 rows={9}
-                className="w-full resize-none rounded-[14px] border border-s3/75 bg-s2/45 px-5 py-4 text-[0.97rem] leading-relaxed text-p4 placeholder:text-p5/50 focus:border-p1/60 focus:outline-none focus:ring-2 focus:ring-p1/20 transition-colors duration-200"
+                className="w-full resize-none rounded-2xl border border-s3 bg-s1 px-5 py-4 text-[0.95rem] leading-relaxed text-p4 placeholder:text-p3 focus:border-p1/50 focus:outline-none focus:ring-2 focus:ring-p1/15 transition-colors duration-200"
               />
               {text.length > 0 && (
-                <span className="absolute bottom-3.5 right-4 text-[0.78rem] font-medium text-p5/60">
+                <span className="absolute bottom-3.5 right-4 text-[0.75rem] font-medium text-p3">
                   {text.trim().split(/\s+/).filter(Boolean).length} words
                 </span>
               )}
@@ -233,27 +215,24 @@ const ToneFinder = () => {
               <button
                 onClick={handleAnalyze}
                 disabled={!text.trim()}
-                className="rounded-[10px] bg-p4 px-5 py-2.5 text-[0.92rem] font-semibold text-s1 transition-opacity duration-200 hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-30"
+                className="h-10 rounded-lg bg-p4 px-5 text-[0.875rem] font-semibold text-s1 transition-colors duration-200 hover:bg-p1 disabled:cursor-not-allowed disabled:opacity-30"
               >
                 Analyze tone
               </button>
-
               {text.length > 0 && (
                 <button
                   onClick={handleReset}
-                  className="rounded-[10px] border border-s3/75 px-5 py-2.5 text-[0.92rem] font-medium text-p5 transition-colors duration-200 hover:border-p1/40 hover:text-p4"
+                  className="h-10 rounded-lg border border-s3 px-5 text-[0.875rem] font-medium text-p5 transition-colors duration-200 hover:border-p1/40 hover:text-p4"
                 >
                   Clear
                 </button>
               )}
-
-              <span className="text-[0.82rem] font-medium text-p5/60 max-sm:hidden">or try an example:</span>
-
+              <span className="text-[0.78rem] text-p3 max-sm:hidden">or try:</span>
               {EXAMPLE_PROMPTS.map((ex) => (
                 <button
                   key={ex.label}
                   onClick={() => handleExample(ex)}
-                  className="rounded-full border border-s3/75 px-3.5 py-1.5 text-[0.8rem] font-medium text-p5 transition-colors duration-200 hover:border-p1/50 hover:text-p4"
+                  className="rounded-full border border-s3 bg-s2 px-3.5 py-1.5 text-[0.78rem] font-medium text-p5 transition-colors duration-200 hover:border-p1/40 hover:text-p4"
                 >
                   {ex.label}
                 </button>
@@ -261,52 +240,38 @@ const ToneFinder = () => {
             </div>
           </div>
 
-          {/* Results panel */}
-          <div className="min-h-[200px]">
-            {!analyzed && (
-              <div className="flex h-full min-h-[200px] flex-col items-center justify-center rounded-[14px] border border-dashed border-s3/60 px-8 py-10 text-center">
-                <p className="text-[0.9rem] font-medium text-p5/60">
-                  Your tone breakdown will appear here
-                </p>
-                <p className="mt-1.5 text-[0.82rem] text-p5/40">
-                  Formal · Casual · Confident · Warm · Persuasive · Technical
-                </p>
+          {/* Results */}
+          <div>
+            {!analyzed ? (
+              <div className="flex min-h-[200px] flex-col items-center justify-center rounded-2xl border border-dashed border-s3 bg-s2/50 px-8 py-10 text-center">
+                <p className="text-[0.875rem] font-medium text-p5">Tone breakdown will appear here</p>
+                <p className="mt-1.5 text-[0.78rem] text-p3">Formal · Casual · Confident · Warm · Persuasive · Technical</p>
               </div>
-            )}
-
-            {analyzed && results && (
-              <div className="rounded-[14px] border border-s3/75 bg-s2/40 px-6 py-5">
-                {/* Dominant label */}
-                <div className="mb-5 flex items-start justify-between gap-3">
-                  <div>
-                    <p className="caption mb-1.5">Primary tone</p>
-                    <p className="h5 text-p4">{dominant?.label}</p>
-                    <p className="mt-1 text-[0.85rem] text-p5/70">{dominant?.description}</p>
-                  </div>
-                  <div className="flex flex-wrap gap-1.5 justify-end">
+            ) : (
+              <div className="rounded-2xl border border-s3 bg-s1 p-5 shadow-[0_2px_16px_rgba(15,23,42,0.06)]">
+                <div className="mb-5">
+                  <p className="text-[0.72rem] font-bold uppercase tracking-[0.12em] text-p3 mb-2">Primary Tone</p>
+                  <p className="h5 text-p4">{dominant?.label}</p>
+                  <p className="mt-0.5 text-[0.82rem] text-p5">{dominant?.description}</p>
+                  <div className="mt-3 flex flex-wrap gap-1.5">
                     {topTones.map((t) => (
-                      <span
-                        key={t.key}
-                        className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[0.76rem] font-semibold ${TONE_COLORS[t.key]?.badge ?? "bg-s3/60 text-p5"}`}
-                      >
-                        <span className={`h-1.5 w-1.5 rounded-full ${TONE_COLORS[t.key]?.dot ?? "bg-p5"}`} />
+                      <span key={t.key} className="rounded-full border border-p1/20 bg-p1/8 px-2.5 py-1 text-[0.72rem] font-semibold text-p1">
                         {t.label}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                {/* Bars */}
                 <div className="space-y-3">
-                  {results.filter((t) => t.score > 0 || t.rawScore > 0).map((tone) => (
+                  {results.filter((t) => t.score > 0).map((tone) => (
                     <div key={tone.key}>
-                      <div className="mb-1 flex justify-between">
-                        <span className="text-[0.82rem] font-semibold text-p4">{tone.label}</span>
-                        <span className="text-[0.82rem] font-medium text-p5/70">{tone.score}%</span>
+                      <div className="mb-1.5 flex justify-between">
+                        <span className="text-[0.8rem] font-semibold text-p4">{tone.label}</span>
+                        <span className="text-[0.8rem] font-medium text-p5">{tone.score}%</span>
                       </div>
-                      <div className="h-2 w-full overflow-hidden rounded-full bg-s3/50">
+                      <div className="h-1.5 w-full overflow-hidden rounded-full bg-s3">
                         <div
-                          className={`h-full rounded-full transition-all duration-700 ease-out ${TONE_COLORS[tone.key]?.bar ?? "bg-p1"}`}
+                          className="h-full rounded-full bg-p1 transition-all duration-700 ease-out"
                           style={{ width: `${tone.score}%` }}
                         />
                       </div>
@@ -314,7 +279,7 @@ const ToneFinder = () => {
                   ))}
                 </div>
 
-                <p className="mt-4 text-[0.78rem] text-p5/50">
+                <p className="mt-4 text-[0.72rem] text-p3">
                   Based on vocabulary patterns, sentence structure, and writing style signals.
                 </p>
               </div>

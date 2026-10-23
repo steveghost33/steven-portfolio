@@ -1,20 +1,21 @@
 import ProjectCard from "../components/ProjectCard.jsx";
-import SectionHeading from "../components/SectionHeading.jsx";
 import { projects } from "../data/portfolio.js";
 
 const Projects = () => {
   return (
-    <section id="projects" className="section-rule py-24 max-lg:py-16">
+    <section id="projects" className="section-rule py-20 max-lg:py-14">
       <div className="container">
-        <SectionHeading
-          eyebrow="Portfolio"
-          title="Selected work with a smoother, more durable finish."
-          description="A few projects where design clarity, implementation discipline, and actual usability mattered just as much as visuals."
-          titleClassName="h2 max-lg:h3"
-          className="mb-16 max-lg:mb-10"
-        />
+        <div className="mb-12 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="caption">Work</p>
+            <h2 className="h2 max-w-[18ch] text-balance">Selected projects</h2>
+          </div>
+          <p className="body-3 max-w-[46ch] lg:text-right">
+            A few projects where design clarity, implementation discipline, and real usability mattered.
+          </p>
+        </div>
 
-        <div>
+        <div className="grid gap-6 sm:grid-cols-2">
           {projects.map((project) => (
             <ProjectCard key={project.title} project={project} />
           ))}

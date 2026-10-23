@@ -1,130 +1,92 @@
 import Button from "../components/Button.jsx";
 import SocialLink from "../components/SocialLink.jsx";
-import { profile } from "../data/portfolio.js";
-
-const facts = [
-  { label: "Detroit, MI", detail: "USA", icon: "location" },
-  { label: "Available for", detail: "select projects", icon: "briefcase" },
-  { label: "15+ Years", detail: "Experience", icon: "clock" },
-];
+import { profile, stats } from "../data/portfolio.js";
 
 const Hero = () => {
   return (
-    <section id="hero" className="relative overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-[250px] overflow-hidden">
-        <svg
-          viewBox="0 0 1440 250"
-          preserveAspectRatio="none"
-          className="h-full w-full"
-          aria-hidden="true"
-        >
-          <defs>
-            <linearGradient id="waveLayer1" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stopColor="rgb(var(--wave-1))" stopOpacity="0.92" />
-              <stop offset="56%" stopColor="rgb(var(--wave-2))" stopOpacity="0.58" />
-              <stop offset="100%" stopColor="rgb(var(--wave-3))" stopOpacity="0.28" />
-            </linearGradient>
-            <linearGradient id="waveLayer2" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stopColor="rgb(var(--wave-2))" stopOpacity="0.42" />
-              <stop offset="54%" stopColor="rgb(var(--wave-3))" stopOpacity="0.62" />
-              <stop offset="100%" stopColor="rgb(var(--wave-4))" stopOpacity="0.3" />
-            </linearGradient>
-            <linearGradient id="waveLayer3" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stopColor="rgb(var(--wave-1))" stopOpacity="0.54" />
-              <stop offset="52%" stopColor="rgb(var(--wave-3))" stopOpacity="0.48" />
-              <stop offset="100%" stopColor="rgb(var(--wave-4))" stopOpacity="0.24" />
-            </linearGradient>
-            <linearGradient id="waveLayer4" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stopColor="rgb(var(--wave-2))" stopOpacity="0.34" />
-              <stop offset="62%" stopColor="rgb(var(--wave-4))" stopOpacity="0.42" />
-              <stop offset="100%" stopColor="rgb(var(--wave-3))" stopOpacity="0.18" />
-            </linearGradient>
-          </defs>
-          <path
-            fill="url(#waveLayer1)"
-            d="M0 58C72 49 122 62 178 72C243 84 285 55 350 60C414 65 451 91 516 90C596 88 646 58 727 64C802 70 843 96 920 88C1014 78 1079 43 1178 61C1269 78 1334 95 1440 28V88C1338 138 1260 122 1174 106C1080 88 1017 121 923 130C843 138 794 111 723 106C643 100 595 130 515 132C447 133 409 108 344 103C281 98 238 126 174 115C119 105 72 91 0 100Z"
-          />
-          <path
-            fill="url(#waveLayer2)"
-            d="M0 96C79 112 134 138 214 128C295 118 320 91 389 106C464 122 521 154 612 142C701 130 742 91 835 102C929 113 970 153 1061 148C1157 142 1217 103 1316 111C1364 115 1403 129 1440 140V183C1397 169 1356 155 1309 151C1214 142 1157 180 1064 187C970 194 922 154 831 143C742 132 704 171 616 183C522 195 460 164 386 149C320 135 293 160 215 169C135 178 78 154 0 139Z"
-          />
-          <path
-            fill="url(#waveLayer3)"
-            d="M0 128C88 143 151 161 237 154C322 147 366 121 444 135C521 148 567 184 656 179C751 174 801 126 895 132C992 138 1038 185 1138 186C1247 188 1321 152 1440 137V178C1321 191 1249 227 1138 225C1037 224 987 177 891 171C801 166 753 213 659 218C566 223 517 189 441 176C365 163 324 188 238 195C151 201 87 184 0 169Z"
-          />
-          <path
-            fill="url(#waveLayer4)"
-            d="M0 154C96 172 164 198 257 190C357 181 421 143 512 160C604 177 669 231 777 219C889 207 959 154 1068 168C1170 181 1229 226 1335 214C1377 209 1412 196 1440 184V226C1407 236 1371 245 1330 249C1226 258 1168 218 1068 205C961 191 894 241 780 250C669 260 602 209 512 193C422 177 359 214 260 222C163 231 95 204 0 187Z"
-          />
-        </svg>
-      </div>
+    <section id="hero" className="relative overflow-hidden py-20 lg:py-28">
+      {/* Subtle top accent line */}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-p1/30 to-transparent" aria-hidden="true" />
 
-      <div className="container relative pb-8 pt-14">
-        <div className="flex flex-col lg:grid lg:items-end lg:gap-10 lg:grid-cols-[minmax(0,1.12fr)_430px_170px]">
+      <div className="container">
+        <div className="grid items-center gap-14 lg:grid-cols-[1fr_440px] lg:gap-16">
 
-          <div className="order-2 lg:order-1 pt-4 lg:pt-24">
-            <p className="caption">Full-stack developer</p>
-            <h1 className="h1 max-w-[11.5ch] text-balance">
-              I build clean, useful web experiences and systems that scale.
+          {/* ── Text ── */}
+          <div className="order-2 lg:order-1">
+            {/* Availability pill */}
+            <div className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-p1/25 bg-p1/6 px-4 py-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-p1" aria-hidden="true" />
+              <span className="text-[0.8rem] font-semibold text-p1 tracking-[0.02em]">Available for select projects</span>
+            </div>
+
+            <h1 className="h1 mb-6 max-w-[15ch] text-balance">
+              Developer & consultant who builds things people actually use.
             </h1>
-            <p className="body-1 mt-7 max-w-[31ch]">
-              15 years of experience delivering websites, web apps, AI workflows, and CRM solutions for nonprofits and small businesses.
+
+            <p className="body-1 mb-10 max-w-[44ch]">
+              15+ years delivering websites, web apps, AI workflows, and CRM systems for nonprofits, small businesses, and growing teams.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-5">
+            <div className="flex flex-wrap items-center gap-4">
               <Button href="#projects">View My Work</Button>
-              <div className="flex items-center gap-3">
+              <Button href="#contact" variant="secondary">Get in Touch</Button>
+            </div>
+
+            {/* Stats row */}
+            <div className="mt-12 flex flex-wrap gap-8 border-t border-s3 pt-8">
+              {stats.map(({ value, label }) => (
+                <div key={label}>
+                  <p className="text-[1.9rem] font-extrabold leading-none tracking-[-0.04em] text-p4">{value}</p>
+                  <p className="mt-1.5 text-[0.85rem] font-medium text-p5">{label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ── Photo ── */}
+          <div className="order-1 lg:order-2">
+            <div className="relative mx-auto w-full max-w-sm lg:max-w-none">
+              {/* Photo card */}
+              <div className="relative overflow-hidden rounded-3xl bg-s2 shadow-[0_8px_40px_rgba(15,23,42,0.10)]">
+                {/* Subtle inner gradient overlay */}
+                <div
+                  className="absolute inset-0 z-10"
+                  style={{
+                    background:
+                      "radial-gradient(ellipse at 50% 0%, rgba(29,78,216,0.04) 0%, transparent 65%)",
+                  }}
+                  aria-hidden="true"
+                />
+                <img
+                  src="/images/steven-bowman-cutout.png"
+                  alt={profile.name}
+                  className="hero-portrait relative z-20 w-full object-contain object-bottom"
+                  style={{ minHeight: "380px" }}
+                />
+              </div>
+
+              {/* Floating location badge */}
+              <div className="absolute -bottom-4 -left-4 flex items-center gap-3 rounded-2xl border border-s3 bg-s1 px-4 py-3 shadow-[0_8px_24px_rgba(15,23,42,0.10)]">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-p1/10 text-p1" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" className="h-4 w-4 fill-current">
+                    <path fillRule="evenodd" d="M5.05 4.05a7 7 0 1 1 9.9 9.9L10 18.9l-4.95-4.95a7 7 0 0 1 0-9.9ZM10 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" clipRule="evenodd" />
+                  </svg>
+                </span>
+                <div>
+                  <p className="text-[0.7rem] font-semibold uppercase tracking-[0.12em] text-p3">Based in</p>
+                  <p className="text-[0.9rem] font-bold text-p4">{profile.location}</p>
+                </div>
+              </div>
+
+              {/* Floating social badge */}
+              <div className="absolute -right-4 top-6 flex items-center gap-2.5 rounded-2xl border border-s3 bg-s1 px-4 py-3 shadow-[0_8px_24px_rgba(15,23,42,0.10)]">
                 {profile.socials.map((social) => (
-                  <SocialLink key={social.id} social={social} iconClassName="h-4 w-4" variant="plain" />
+                  <SocialLink key={social.id} social={social} iconClassName="h-4 w-4" variant="box" />
                 ))}
               </div>
             </div>
           </div>
 
-          <div className="order-1 lg:order-2 relative flex min-h-[300px] items-end justify-center lg:min-h-[460px] lg:translate-y-2">
-            <div
-              className="hero-portrait-stage absolute inset-x-[2%] bottom-4 top-[10%] rounded-[42%_42%_18%_18%/28%_28%_12%_12%]"
-              aria-hidden="true"
-            />
-            <div className="absolute bottom-3 h-16 w-[82%] rounded-[50%] bg-black/10 blur-2xl" aria-hidden="true" />
-            <div className="absolute right-[4%] top-[8%] h-28 w-28 rounded-full bg-white/45 blur-3xl" aria-hidden="true" />
-            <div className="absolute bottom-[18%] left-[4%] h-24 w-24 rounded-full bg-s5/80 blur-3xl" aria-hidden="true" />
-            <img
-              src="/images/steven-bowman-cutout.png"
-              alt={profile.name}
-              className="hero-portrait relative z-10 w-[220px] max-w-none object-contain object-bottom sm:w-[280px] lg:w-[380px] lg:translate-x-1"
-            />
-          </div>
-
-          <dl className="order-3 mt-8 flex flex-col gap-6 border-l border-s3/70 pl-6 pb-6 lg:mt-0">
-            {facts.map(({ label, detail, icon }) => (
-              <div key={label} className="grid grid-cols-[20px_minmax(0,1fr)] items-start gap-3 border-b border-s3/55 pb-4 last:border-b-0 last:pb-0">
-                <span className="mt-0.5 text-p5" aria-hidden="true">
-                  {icon === "location" ? (
-                    <svg viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current stroke-[1.8]">
-                      <path d="M12 21s6-5.63 6-11a6 6 0 1 0-12 0c0 5.37 6 11 6 11Z" />
-                      <circle cx="12" cy="10" r="2.5" />
-                    </svg>
-                  ) : icon === "briefcase" ? (
-                    <svg viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current stroke-[1.8]">
-                      <path d="M8 7V5.75A1.75 1.75 0 0 1 9.75 4h4.5A1.75 1.75 0 0 1 16 5.75V7" />
-                      <path d="M4 8.5h16v9.75A1.75 1.75 0 0 1 18.25 20h-12.5A1.75 1.75 0 0 1 4 18.25Z" />
-                      <path d="M4 12h16" />
-                    </svg>
-                  ) : (
-                    <svg viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current stroke-[1.8]">
-                      <circle cx="12" cy="12" r="8" />
-                      <path d="M12 8v4l2.5 1.5" />
-                    </svg>
-                  )}
-                </span>
-                <div>
-                  <dt className="text-[1rem] font-medium text-p4">{label}</dt>
-                  <dd className="mt-1 text-[0.9rem] text-p5">{detail}</dd>
-                </div>
-              </div>
-            ))}
-          </dl>
         </div>
       </div>
     </section>

@@ -2,40 +2,52 @@ import { skillGroups } from "../data/portfolio.js";
 
 const technologyTags = skillGroups
   .flatMap(({ skills }) => skills)
-  .slice(0, 10);
+  .slice(0, 12);
 
 const About = () => {
   return (
-    <section id="about" className="section-rule py-12 max-lg:py-10">
-      <div className="container grid gap-10 lg:grid-cols-[1.05fr_1.1fr_0.9fr]">
-        <div>
-          <p className="caption">About Me</p>
-          <h2 className="h3 max-w-[11ch] text-balance">
-            I help teams turn ideas into reliable, human-centered products.
-          </h2>
-        </div>
+    <section id="about" className="section-rule bg-s2 py-20 max-lg:py-14">
+      <div className="container">
+        <div className="grid gap-12 lg:grid-cols-[320px_minmax(0,1fr)] lg:gap-20">
 
-        <div className="space-y-6">
-          <p className="body-3">
-            I’m a full-stack developer and technology consultant with a passion for building software that solves real problems. I care about clarity, performance, and creating experiences people actually enjoy using.
-          </p>
-          <p className="body-3">
-            Over the years, I’ve partnered with mission-driven organizations and small businesses to build tools that save time, reduce friction, and help them make a bigger impact.
-          </p>
-        </div>
+          {/* Left col */}
+          <div>
+            <p className="caption">About</p>
+            <h2 className="h3 text-balance">
+              I turn ideas into products that work.
+            </h2>
+            <p className="mt-5 body-3">
+              Based in Detroit. Building for mission-driven organizations and growing businesses since 2009.
+            </p>
+          </div>
 
-        <div>
-          <p className="caption">Technologies</p>
-          <ul className="flex flex-wrap gap-2.5">
-            {technologyTags.map((skill) => (
-              <li
-                key={skill}
-                className="rounded-[8px] border border-s3/75 bg-s2/45 px-3 py-2 text-sm font-medium text-p5"
-              >
-                {skill}
-              </li>
-            ))}
-          </ul>
+          {/* Right col */}
+          <div className="space-y-10">
+            <div className="space-y-5">
+              <p className="body-3">
+                I'm a full-stack developer and technology consultant focused on building software that solves real problems. I care about clarity, performance, and creating experiences people actually enjoy using.
+              </p>
+              <p className="body-3">
+                Over the years I've partnered with nonprofits and small businesses to build tools that save time, reduce friction, and help teams make a bigger impact — without the enterprise price tag.
+              </p>
+            </div>
+
+            {/* Tech badges */}
+            <div>
+              <p className="mb-4 text-[0.78rem] font-bold uppercase tracking-[0.12em] text-p3">Technologies</p>
+              <div className="flex flex-wrap gap-2">
+                {technologyTags.map((skill) => (
+                  <span
+                    key={skill}
+                    className="rounded-lg border border-s3 bg-s1 px-3 py-1.5 text-[0.82rem] font-medium text-p5"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

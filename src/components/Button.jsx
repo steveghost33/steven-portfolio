@@ -11,43 +11,30 @@ const Button = ({
   onClick,
   variant = "primary",
 }) => {
-  const Inner = () => {
-    const innerClassName = clsx(
-      "relative flex min-h-[54px] items-center gap-3 overflow-hidden rounded-[10px] px-6 py-3 transition-all duration-300 group-hover:-translate-y-0.5",
-      variant === "primary"
-        ? "bg-p4 text-s2 shadow-100"
-        : "border border-s3/80 bg-s2/65 text-p4"
-    );
-
-    return (
-      <span className={innerClassName}>
-        {icon ? (
-          <img
-            src={icon}
-            alt={iconAlt}
-            className="icon-image z-10 size-5 object-contain"
-            aria-hidden={iconAlt ? undefined : "true"}
-          />
-        ) : null}
-
-        <span className={clsx("relative z-2 text-[15px] font-semibold tracking-[0.01em]", variant === "primary" ? "text-s2" : "text-p4")}>
-          {children}
-        </span>
-      </span>
-    );
-  };
-
   const className = clsx(
-    "group relative inline-flex w-fit",
+    "inline-flex h-10 items-center gap-2 rounded-lg px-5 text-[0.875rem] font-semibold transition-all duration-200",
+    variant === "primary"
+      ? "bg-p4 text-s1 hover:bg-p1"
+      : "border border-s3 bg-s1 text-p4 hover:border-p1/40 hover:text-p1",
     containerClassName
   );
 
+  const inner = (
+    <>
+      {icon ? (
+        <img
+          src={icon}
+          alt={iconAlt}
+          className="icon-image h-4 w-4 object-contain"
+          aria-hidden={iconAlt ? undefined : "true"}
+        />
+      ) : null}
+      {children}
+    </>
+  );
+
   if (to) {
-    return (
-      <Link className={className} to={to}>
-        <Inner />
-      </Link>
-    );
+    return <Link className={className} to={to}>{inner}</Link>;
   }
 
   if (href) {
@@ -59,14 +46,14 @@ const Button = ({
         rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
         onClick={onClick}
       >
-        <Inner />
+        {inner}
       </a>
     );
   }
 
   return (
     <button className={className} onClick={onClick} type="button">
-      <Inner />
+      {inner}
     </button>
   );
 };

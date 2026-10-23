@@ -1,31 +1,33 @@
-import SectionHeading from "../components/SectionHeading.jsx";
 import { skillGroups } from "../data/portfolio.js";
 
 const Skills = () => {
   return (
-    <section id="skills" className="section-rule py-24 max-lg:py-16">
-      <div className="container grid gap-12 lg:grid-cols-[300px_minmax(0,1fr)]">
-        <SectionHeading
-          eyebrow="Skills"
-          title="The tools are flexible. The thinking stays consistent."
-          align="left"
-          titleClassName="h3"
-        />
+    <section id="skills" className="section-rule bg-s2 py-20 max-lg:py-14">
+      <div className="container">
+        <div className="mb-12">
+          <p className="caption">Capabilities</p>
+          <h2 className="h2 max-w-[22ch] text-balance">The tools are flexible. The thinking stays consistent.</h2>
+        </div>
 
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {skillGroups.map(({ category, skills }) => (
-            <div key={category} className="border-t border-s3/70 pt-5">
-              <h3 className="h6 mb-5">{category}</h3>
-              <ul className="flex flex-wrap gap-2.5">
+            <div
+              key={category}
+              className="rounded-2xl border border-s3 bg-s1 p-6"
+            >
+              <h3 className="mb-4 text-[0.78rem] font-bold uppercase tracking-[0.12em] text-p1">
+                {category}
+              </h3>
+              <div className="flex flex-wrap gap-2">
                 {skills.map((skill) => (
-                  <li
+                  <span
                     key={skill}
-                    className="rounded-full border border-s3/80 bg-s2/35 px-4 py-2 text-sm font-medium text-p5"
+                    className="rounded-lg border border-s3 bg-s2 px-3 py-1.5 text-[0.82rem] font-medium text-p5"
                   >
                     {skill}
-                  </li>
+                  </span>
                 ))}
-              </ul>
+              </div>
             </div>
           ))}
         </div>
