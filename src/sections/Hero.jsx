@@ -60,27 +60,8 @@ const Hero = () => {
       </div>
 
       <div className="container relative pb-8 pt-14">
-        {/*
-          Mobile:  flex-col, photo first (order-1), text second (order-2), facts last (order-3)
-          Desktop: 3-column grid — text | photo | facts
-        */}
-        <div className="flex flex-col lg:grid lg:items-end lg:gap-10 lg:grid-cols-[minmax(0,1.3fr)_360px_170px]">
+        <div className="flex flex-col lg:grid lg:items-end lg:gap-10 lg:grid-cols-[minmax(0,1.12fr)_430px_170px]">
 
-          {/* Photo — first on mobile, center column on desktop */}
-          <div className="order-1 lg:order-2 relative flex items-end justify-center
-                          lg:min-h-[420px]
-                          mt-14 mx-auto w-[200px] h-[260px]
-                          lg:mt-0 lg:w-auto lg:h-auto lg:mx-0">
-            <div className="absolute bottom-0 h-10 w-[88%] rounded-[50%] bg-black/12 blur-xl lg:h-16" />
-            <div className="absolute bottom-[16%] left-[-8%] h-16 w-16 rounded-full bg-s5/70 blur-2xl lg:h-24 lg:w-24" />
-            <img
-              src="/images/steven-bowman.jpg"
-              alt={profile.name}
-              className="hero-photo relative z-10 w-full h-full object-cover object-top lg:h-[430px] lg:w-[320px] lg:object-center"
-            />
-          </div>
-
-          {/* Text — second on mobile, first column on desktop */}
           <div className="order-2 lg:order-1 pt-4 lg:pt-24">
             <p className="caption">Full-stack developer</p>
             <h1 className="h1 max-w-[11.5ch] text-balance">
@@ -100,7 +81,21 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Facts — last on mobile, third column on desktop */}
+          <div className="order-1 lg:order-2 relative flex min-h-[300px] items-end justify-center lg:min-h-[460px] lg:translate-y-2">
+            <div
+              className="hero-portrait-stage absolute inset-x-[2%] bottom-4 top-[10%] rounded-[42%_42%_18%_18%/28%_28%_12%_12%]"
+              aria-hidden="true"
+            />
+            <div className="absolute bottom-3 h-16 w-[82%] rounded-[50%] bg-black/10 blur-2xl" aria-hidden="true" />
+            <div className="absolute right-[4%] top-[8%] h-28 w-28 rounded-full bg-white/45 blur-3xl" aria-hidden="true" />
+            <div className="absolute bottom-[18%] left-[4%] h-24 w-24 rounded-full bg-s5/80 blur-3xl" aria-hidden="true" />
+            <img
+              src="/images/steven-bowman-cutout.png"
+              alt={profile.name}
+              className="hero-portrait relative z-10 w-[220px] max-w-none object-contain object-bottom sm:w-[280px] lg:w-[380px] lg:translate-x-1"
+            />
+          </div>
+
           <dl className="order-3 mt-8 flex flex-col gap-6 border-l border-s3/70 pl-6 pb-6 lg:mt-0">
             {facts.map(({ label, detail, icon }) => (
               <div key={label} className="grid grid-cols-[20px_minmax(0,1fr)] items-start gap-3 border-b border-s3/55 pb-4 last:border-b-0 last:pb-0">

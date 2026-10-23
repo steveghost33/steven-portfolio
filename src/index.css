@@ -117,6 +117,19 @@
   .surface-line { @apply border border-s3/70 bg-s2/40; }
   .social-icon { @apply inline-flex h-8 w-8 items-center justify-center text-p4/90 transition-colors duration-300 hover:text-p1; }
   .social-icon-box { @apply inline-flex h-10 w-10 items-center justify-center rounded-full border border-s3/80 bg-s2/55 text-p4 transition-colors duration-300 hover:border-p1/40 hover:text-p1; }
+  .hero-portrait-stage {
+    background:
+      radial-gradient(circle at 50% 22%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0) 42%),
+      radial-gradient(circle at 50% 70%, rgba(227, 234, 242, 0.52), rgba(227, 234, 242, 0) 60%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0));
+    filter: blur(4px);
+  }
+
+  .hero-portrait {
+    filter: drop-shadow(0 30px 44px rgba(15, 23, 42, 0.14));
+    mask-image: linear-gradient(to bottom, black 0, black 84%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0, black 84%, transparent 100%);
+  }
 }
 
 html {
