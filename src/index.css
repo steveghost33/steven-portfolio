@@ -6,18 +6,18 @@
 
 /* ─── Design tokens ──────────────────────────────────────────────────── */
 :root {
-  --color-s1: 255 255 255;
-  --color-s2: 248 250 252;
-  --color-s3: 226 232 240;
-  --color-s4: 241 245 249;
-  --color-s5: 239 246 255;
-  --color-p1: 29 78 216;
+  --color-s1: 250 249 246;      /* warm cream base */
+  --color-s2: 243 240 233;      /* warm surface */
+  --color-s3: 214 208 196;      /* warm border */
+  --color-s4: 237 233 225;      /* alternate warm surface */
+  --color-s5: 226 235 255;      /* blue tint surface */
+  --color-p1: 29 78 216;        /* blue accent */
   --color-p2: 219 234 254;
-  --color-p3: 148 163 184;
-  --color-p4: 15 23 42;
-  --color-p5: 100 116 139;
+  --color-p3: 154 146 130;      /* warm muted */
+  --color-p4: 18 15 10;         /* warm near-black */
+  --color-p5: 90 83 70;         /* warm body text */
   --color-black: 0 0 0;
-  --color-black-100: 248 250 252;
+  --color-black-100: 243 240 233;
   --icon-filter: none;
 }
 
@@ -72,7 +72,7 @@
 
 /* ─── Utilities ──────────────────────────────────────────────────────── */
 @layer utilities {
-  .h1 { @apply font-inter text-[clamp(2.75rem,5vw,4.25rem)] font-extrabold leading-[1.0] tracking-[-0.04em] text-p4; }
+  .h1 { @apply font-inter text-[clamp(3rem,5.5vw,5rem)] font-extrabold leading-[0.96] tracking-[-0.045em] text-p4; }
   .h2 { @apply font-inter text-[clamp(2.1rem,3.8vw,3.25rem)] font-bold leading-[1.05] tracking-[-0.035em] text-p4; }
   .h3 { @apply font-inter text-[clamp(1.7rem,3vw,2.4rem)] font-bold leading-[1.1] tracking-[-0.03em] text-p4; }
   .h4 { @apply font-inter text-[clamp(1.35rem,2.4vw,1.9rem)] font-bold leading-[1.15] tracking-[-0.02em] text-p4; }
@@ -93,11 +93,5 @@
   .text-balance { text-wrap: balance; }
   .surface-line { @apply border border-s3 bg-s2; }
   .social-icon  { @apply inline-flex h-9 w-9 items-center justify-center rounded-full border border-s3 bg-s1 text-p5 transition-colors duration-200 hover:border-p1/50 hover:text-p1; }
-  .social-icon-box { @apply inline-flex h-10 w-10 items-center justify-center rounded-full border border-s3 bg-s2 text-p4 transition-colors duration-200 hover:border-p1/40 hover:text-p1; }
-
-  .hero-portrait {
-    filter: drop-shadow(0 24px 40px rgba(15, 23, 42, 0.14));
-    mask-image: linear-gradient(to bottom, black 0, black 82%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 0, black 82%, transparent 100%);
-  }
+  .social-icon-box { @apply inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white/70 transition-colors duration-200 hover:border-white/40 hover:text-white; }
 }

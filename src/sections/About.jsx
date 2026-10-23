@@ -6,7 +6,7 @@ const technologyTags = skillGroups
 
 const About = () => {
   return (
-    <section id="about" className="section-rule bg-s2 py-20 max-lg:py-14">
+    <section id="about" className="section-rule py-20 max-lg:py-14">
       <div className="container">
         <div className="grid gap-12 lg:grid-cols-[320px_minmax(0,1fr)] lg:gap-20">
 

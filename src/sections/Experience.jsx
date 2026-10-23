@@ -40,7 +40,7 @@ const Experience = () => {
           {experienceHighlights.map(({ title, description }, i) => (
             <div
               key={title}
-              className="rounded-2xl border border-s3 bg-s2 p-6 lg:p-7"
+              className="rounded-2xl border border-s3 bg-s1 p-6 lg:p-7"
             >
               <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-xl bg-p1/10 text-p1">
                 {icons[i]}
