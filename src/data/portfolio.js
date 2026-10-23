@@ -4,7 +4,6 @@ export const navLinks = [
   { title: "Projects", href: "#projects" },
   { title: "Skills", href: "#skills" },
   { title: "Experience", href: "#experience" },
-  { title: "Tone Finder", href: "#tone-finder" },
   { title: "Contact", href: "#contact" },
 ];
 
@@ -60,6 +59,16 @@ export const experienceHighlights = [
 ];
 
 export const projects = [
+  {
+    title: "Tone Finder",
+    image: null,
+    alt: "Tone Finder — interactive writing tone analysis tool",
+    description:
+      "A client-side writing analysis tool that breaks down copy into six tone dimensions — formal, casual, confident, warm, persuasive, and technical. Paste any text and get an instant breakdown with percentage scores.",
+    tags: ["React", "JavaScript", "Vite", "Tailwind CSS"],
+    url: "/tone-finder",
+    internal: true,
+  },
   {
     title: "Ella Tech Solutions",
     image: "/images/projects/ellatech.png",
