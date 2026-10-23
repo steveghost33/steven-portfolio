@@ -72,9 +72,9 @@
 
 /* ─── Utilities ──────────────────────────────────────────────────────── */
 @layer utilities {
-  .h1 { @apply font-inter text-[clamp(3rem,5.5vw,5rem)] font-extrabold leading-[0.96] tracking-[-0.045em] text-p4; }
-  .h2 { @apply font-inter text-[clamp(2.1rem,3.8vw,3.25rem)] font-bold leading-[1.05] tracking-[-0.035em] text-p4; }
-  .h3 { @apply font-inter text-[clamp(1.7rem,3vw,2.4rem)] font-bold leading-[1.1] tracking-[-0.03em] text-p4; }
+  .h1 { @apply font-inter text-[clamp(3.2rem,7vw,6.5rem)] font-black leading-[0.9] tracking-[-0.045em] text-p4; }
+  .h2 { @apply font-inter text-[clamp(2.4rem,4.5vw,4rem)] font-black leading-[0.95] tracking-[-0.04em] text-p4; }
+  .h3 { @apply font-inter text-[clamp(1.8rem,3vw,2.6rem)] font-bold leading-[1.05] tracking-[-0.03em] text-p4; }
   .h4 { @apply font-inter text-[clamp(1.35rem,2.4vw,1.9rem)] font-bold leading-[1.15] tracking-[-0.02em] text-p4; }
   .h5 { @apply font-inter text-[clamp(1.1rem,1.8vw,1.35rem)] font-semibold leading-[1.25] tracking-[-0.015em] text-p4; }
   .h6 { @apply font-inter text-[0.975rem] font-semibold leading-[1.45] tracking-[-0.01em] text-p4; }
