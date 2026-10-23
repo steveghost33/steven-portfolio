@@ -47,21 +47,11 @@ const Hero = () => {
           <div className="order-1 lg:order-2">
             <div className="relative mx-auto w-full max-w-sm lg:max-w-none">
               {/* Photo card */}
-              <div className="relative overflow-hidden rounded-3xl bg-s2 shadow-[0_8px_40px_rgba(15,23,42,0.10)]">
-                {/* Subtle inner gradient overlay */}
-                <div
-                  className="absolute inset-0 z-10"
-                  style={{
-                    background:
-                      "radial-gradient(ellipse at 50% 0%, rgba(29,78,216,0.04) 0%, transparent 65%)",
-                  }}
-                  aria-hidden="true"
-                />
+              <div className="overflow-hidden rounded-3xl shadow-[0_8px_40px_rgba(15,23,42,0.12)]">
                 <img
-                  src="/images/steven-bowman-cutout.png"
+                  src="/images/steven-bowman-pro.jpg"
                   alt={profile.name}
-                  className="hero-portrait relative z-20 w-full object-contain object-bottom"
-                  style={{ minHeight: "380px" }}
+                  className="aspect-[4/5] w-full object-cover object-top"
                 />
               </div>
 
